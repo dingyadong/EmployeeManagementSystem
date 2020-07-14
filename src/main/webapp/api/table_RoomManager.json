@@ -1,0 +1,58 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10000,
+      "username": "ABC",
+      "department": "部门",
+      "time": "城市-0",
+      "room": "签名-0",
+      "yuyue": "yes",
+      "equipment": "空调"
+      
+    },
+     {
+      "id": 10000,
+      "username": "ABC",
+      "department": "部门",
+      "time": "城市-0",
+      "room": "签名-0",
+      "yuyue": "no",
+      "equipment":"投影"
+      
+    },
+     {
+      "id": 10000,
+      "username": "ABC",
+      "department": "部门",
+      "time": "城市-0",
+      "room": "签名-0",
+      "yuyue": "yes",
+      "equipment": "音响"
+      
+    },
+    {
+      "id": 10000,
+      "username": "ABC",
+      "department": "部门",
+      "time": "城市-0",
+      "room": "签名-0",
+      "yuyue": "no",
+      "equipment": "显示器"
+      
+    },
+    {
+      "id": 10000,
+      "username": "ABC",
+      "department": "部门",
+      "time": "城市-0",
+      "room": "签名-0",
+      "yuyue": 255,
+      "equipment": 24
+      
+    }
+    
+  ]
+}

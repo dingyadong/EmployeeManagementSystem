@@ -1,0 +1,207 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 19,
+  "data": [
+    {
+      "authorityId": 1,
+      "authorityName": "会议室设施",
+      "orderNumber": 1,
+      "menuUrl": null,
+      "menuIcon": "layui-icon-set",
+      "createTime": "2018/06/29 11:05:41",
+      "authority": null,
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 0,
+      "parentId": -1
+    },
+    {
+      "authorityId": 2,
+      "authorityName": "会议室一",
+      "orderNumber": 2,
+      "menuUrl": "system/user",
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": null,
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 0,
+      "parentId": 1
+    },
+    {
+      "authorityId": 3,
+      "authorityName": "投影仪",
+      "orderNumber": 3,
+      "menuUrl": "",
+      "menuIcon": "",
+      "createTime": "2018/07/21 13:54:16",
+      "authority": "15",
+      "checked": 0,
+      "updateTime": "2018/07/21 13:54:16",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    {
+      "authorityId": 4,
+      "authorityName": "音响",
+      "orderNumber": 4,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    {
+      "authorityId": 5,
+      "authorityName": "空调",
+      "orderNumber": 5,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    {
+      "authorityId": 5,
+      "authorityName": "会议桌",
+      "orderNumber": 5,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    {
+      "authorityId": 5,
+      "authorityName": "会议椅",
+      "orderNumber": 5,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    {
+      "authorityId": 6,
+      "authorityName": "遥控器",
+      "orderNumber": 6,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 2
+    },
+    
+    {
+      "authorityId": 11,
+      "authorityName": "会议室二",
+      "orderNumber": 11,
+      "menuUrl": "",
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": null,
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 0,
+      "parentId": 1
+    },
+     {
+      "authorityId": 12,
+      "authorityName": "投影仪",
+      "orderNumber":12,
+      "menuUrl": "",
+      "menuIcon": "",
+      "createTime": "2018/07/21 13:54:16",
+      "authority": "15",
+      "checked": 0,
+      "updateTime": "2018/07/21 13:54:16",
+      "isMenu": 1,
+      "parentId": 11
+    },
+    {
+      "authorityId": 13,
+      "authorityName": "音响",
+      "orderNumber": 13,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 11
+    },
+    {
+      "authorityId": 14,
+      "authorityName": "空调",
+      "orderNumber": 14,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 11
+    },
+    {
+      "authorityId": 15,
+      "authorityName": "会议桌",
+      "orderNumber": 15,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 11
+    },
+    {
+      "authorityId": 16,
+      "authorityName": "会议椅",
+      "orderNumber": 16,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 11
+    },
+    {
+      "authorityId": 17,
+      "authorityName": "遥控器",
+      "orderNumber": 17,
+      "menuUrl": null,
+      "menuIcon": null,
+      "createTime": "2018/06/29 11:05:41",
+      "authority": "20",
+      "checked": 0,
+      "updateTime": "2018/07/13 09:13:42",
+      "isMenu": 1,
+      "parentId": 11
+    }
+   
+    
+    
+   
+  ]
+}

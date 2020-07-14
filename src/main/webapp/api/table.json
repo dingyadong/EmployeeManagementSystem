@@ -1,0 +1,46 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10000,
+      "password": 123456,
+      "name": "张三",
+      "sex": "男",
+      "age": 22,
+      "deptname": "编辑部",
+      "site": "经理",
+      "classify": "作家",
+      "hobby": "唱歌",
+      "phone": 17347787148,
+      "jiaose": "经理"
+    },
+     {
+      "id": 10001,
+      "password": 123456,
+      "name": "李四",
+      "sex": "男",
+      "age": 30,
+      "deptname": "财务部",
+      "site": "员工",
+      "classify": "会计",
+      "hobby": "数钱",
+      "phone": 1733456,
+      "jiaose": "员工"
+    },
+     {
+      "id": 10002,
+      "password": 123456,
+      "name": "王五",
+      "sex": "男",
+      "age": 33,
+      "deptname": "财务部",
+      "site": "员工",
+      "classify": "会计",
+      "hobby": "数钱",
+      "phone": 1733789,
+      "jiaose": "经理"
+    }
+  ]
+}

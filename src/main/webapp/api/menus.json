@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 100,
+  "data": [
+    {
+      "sendName": "张三",
+      "acceptName": "小刘",    
+      "sendTime": "2020/07/10 11:05:41",
+      "state": "已完成"
+    },{
+      "sendName": "李四",
+      "acceptName": "小张",    
+      "sendTime": "2020/07/1 11:05:41",
+      "state": "未完成"
+    },{
+      "sendName": "王五",
+      "acceptName": "小陶子",    
+      "sendTime": "2020/07/2 11:05:41",
+      "state": "未完成"
+    }
+  ]
+}

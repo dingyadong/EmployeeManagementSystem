@@ -1,0 +1,33 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 1,
+      "deptid": "10001",
+      "deptname": "财务部"    
+    },
+    {
+      "id": 2,
+      "deptid": "10002",
+      "deptname": "市场部"    
+    },
+    {
+      "id": 3,
+      "deptid": "10003",
+      "deptname": "开发部"    
+    },
+	{
+      "id": 4,
+      "deptid": "10004",
+      "deptname": "客服部"    
+    },
+    {
+      "id": 5,
+      "deptid": "10005",
+      "deptname": "采购部"    
+    }
+      
+  ]
+}

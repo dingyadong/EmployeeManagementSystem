@@ -1,0 +1,20 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "sendName": "张三",
+      "acceptName": "李四",
+      "conent": "赶快上班！"  
+    },{
+      "sendName": "李四",
+      "acceptName": "张三",
+      "conent": "已上班！"  
+    },{
+      "sendName": "小刘",
+      "acceptName": "小李",
+      "conent": "来我家吃饭！"  
+    }
+  ]
+}

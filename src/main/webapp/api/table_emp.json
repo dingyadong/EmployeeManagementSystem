@@ -1,0 +1,56 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1,
+  "data": [
+    {
+      "id": 1,
+      "empid": "e01",
+      "emppost":"技术总监",
+      "deptname": "开发部",  
+      "sex":"男",
+      "empname":"张三"
+    },
+    {
+      "id": 2,
+      "empid": "e02",
+      "emppost":"市场总监",
+      "deptname": "市场部",  
+      "sex":"男",
+      "empname":"李四"
+    },
+    {
+      "id": 3,
+      "empid": "e03",
+      "emppost":"财务会计",
+      "deptname": "财务部",  
+      "sex":"男",
+      "empname":"王五"
+    },
+    {
+      "id": 4,
+      "empid": "e04",
+      "emppost":"客户经理",
+      "deptname": "客服部",  
+      "sex":"女",
+      "empname":"李师师"
+    },
+	{
+      "id": 5,
+      "empid": "e05",
+      "emppost":"市场总监",
+      "deptname": "财务部",  
+      "sex":"女",
+      "empname":"孙一梅"
+    },
+    {
+      "id": 1,
+      "empid": "e06",
+      "emppost":"采购专员",
+      "deptname": "采购部",  
+      "sex":"男",
+      "empname":"刘澜"
+    }
+      
+  ]
+}

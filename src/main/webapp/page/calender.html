@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+<body>
+ <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+ <div class="site-demo-laydate" style="padding-left:20px;padding-top:20px">
+  <div class="layui-inline" id="test-n1"></div>
+</div>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate; 
+  //直接嵌套显示
+  laydate.render({
+    elem: '#test-n1'
+    ,position: 'static'
+  });
+});
+</script>
+</body>
+</html>

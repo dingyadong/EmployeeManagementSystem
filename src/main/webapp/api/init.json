@@ -1,0 +1,339 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "重案七组",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "个人办公",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        
+        
+        {
+          "title": "个人信息",
+          "href": "page/table.html",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },       
+        {
+          "title": "工作安排",
+          "href": "",
+          "icon": "fa fa-briefcase",
+          "target": "_self",
+          "child": [
+            {
+              "title": "读者设置",
+              "href": "page/reader.html",
+              "icon": "fa fa-certificate",
+              "target": "_self"
+            },
+            {
+              "title": "代办设置",
+              "href": "page/To-do.html",
+              "icon": "fa fa-asterisk",
+              "target": "_self"
+            },
+            {
+              "title": "日程安排",
+              "href": "page/schedule_arrange.html",
+              "icon": "fa fa-bars",
+              "target": "_self"
+            },
+            {
+              "title": "日历查看",
+              "href": "page/calender.html",
+              "icon": "fa fa-calendar",
+              "target": "_self"
+            }
+          ]
+        },
+        
+        {
+          "title": "名片夹",
+          "href": "",
+          "icon": "fa fa-heartbeat",
+          "target": "_self",
+          "child": [
+            {
+              "title": "名片夹分类",
+              "href": "page/card1.html",
+              "icon": "fa fa-heart",
+              "target": "_self"
+            },
+            {
+              "title": "个人名片夹",
+              "href": "page/card.html",
+              "icon": "fa fa-heart-o",
+              "target": "_self"
+            }
+          ]
+        },
+        
+         {
+          "title": "公司通讯录",
+          "href": "page/tel.html",
+          "icon": "fa fa-phone",
+          "target": "_self"
+        }, {
+          "title": "待办事项",
+          "href": "page/menu.html",
+          "icon": "fa fa-heart",
+          "target": "_self"
+        }, 
+        {
+          "title": "在线信息",
+          "href": "",
+          "icon": "fa fa-tty",
+          "target": "_self",
+          "child": [
+            {
+              "title": "草稿箱",
+              "href": "page/draft.html",
+              "icon": "fa fa-leaf",
+              "target": "_self"
+            },
+            {
+              "title": "已发送",
+              "href": "page/sendOk.html",
+              "icon": "fa fa-tag",
+              "target": "_self"
+            },
+            {
+              "title": "未阅留言",
+              "href": "page/noLook.html",
+              "icon": "fa fa-lock",
+              "target": "_self"
+            },
+            {
+              "title": "全部留言",
+              "href": "page/AllPane.html",
+              "icon": "fa fa-viacoin",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "个人文件夹",
+          "href": "",
+          "icon": "fa fa-folder",
+          "target": "_self",
+          "child": [
+            {
+              "title": "我的文件夹",
+              "href": "page/myfile.html",
+              "icon": "fa fa-folder-o",
+              "target": "_self"
+            },
+            {
+              "title": "共享文件夹",
+              "href": "page/sharefile.html",
+              "icon": "fa fa-folder-open-o",
+              "target": "_self"
+            }
+             ]
+        }
+      ]
+       
+    },
+    
+    
+    
+    
+      {
+      "title": "会议管理",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "会议室管理",
+          "href": "page/icon.html",
+          "icon": "fa fa-dot-circle-o",
+          "target": "_self",
+          "child": [
+            {
+              "title": "设施分类维护",
+              "href": "page/maintenance.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "会议室设施管理",
+              "href": "page/meetManagement.html",
+              "icon": "fa fa-adn",
+              "target": "_self"
+            },
+            {
+              "title": "会议室管理",
+              "href": "page/room_Manage.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "会议室预订审批",
+              "href": "page/Room_apply.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "会议室使用报表",
+              "href": "page/ReportForms.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+            
+        {
+          "title": "个人会议安排",
+          "href": "page/PersonMeeting.html",
+          "icon": "fa fa-adn",
+          "target": "_self"
+        },
+        {
+          "title": "会议内容提交",
+          "href": "page/MeetContent.html",
+          "icon": "fa fa-dashboard",
+          "target": "_self"
+        }
+    
+      ]
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {
+      "title": "系统管理",
+      "icon": "fa fa-slideshare",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "部门管理",
+          "href": "page/dept_mgt.html",
+          "icon": "fa fa-meetup",
+          "target": "_self",
+          "child": [
+            {
+              "title": "新增部门",
+              "href": "page/table/add_dept.html",
+              "icon": "fa fa-snowflake-o",
+              "target": "_self"
+            },
+            {
+              "title": "修改部门",
+              "href": "page/table/edit_dept.html",
+              "icon": "fa fa-shield",
+              "target": "_self"
+            },
+	        {
+	          "title": "部门列表",
+	          "href": "page/dept_mgt.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        }
+          ]
+        },
+        {
+          "title": "角色管理",
+          "href": "page/role_mgt.html",
+          "icon": "fa fa-superpowers",
+          "target": "_self",
+          "child": [
+	        {
+	          "title": "新增角色",
+	          "href": "page/table/add_role.html",
+	          "icon": "fa fa-meetup",
+	          "target": "_self"
+	        },
+	        {
+	          "title": "修改角色",
+	          "href": "page/table/edit_role.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        },
+	        {
+	          "title": "角色列表",
+	          "href": "page/role_mgt.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        },
+	        {
+	          "title": "分配角色",
+	          "href": "page/table/assign_role.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        }
+	      ]
+        },
+        {
+          "title": "员工管理",
+          "href": "page/emp_mgt.html",
+          "icon": "fa fa-superpowers",
+          "target": "_self",
+          "child": [
+	        {
+	          "title": "增加员工信息",
+	          "href": "page/table/add_emp.html",
+	          "icon": "fa fa-meetup",
+	          "target": "_self"
+	        },
+	        {
+	          "title": "修改员工信息",
+	          "href": "page/table/edit_emp.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        },
+	        {
+	          "title": "查询员工信息",
+	          "href": "page/emp_mgt.html",
+	          "icon": "fa fa-superpowers",
+	          "target": "_self"
+	        }
+	      ]
+        },
+        {
+          "title": "文件夹管理",
+          "href": "page/folder_mgt.html",
+          "icon": "fa fa-superpowers",
+          "target": "_self"
+          
+        }
+        
+      ]
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "name": "张三",
+      "tel": 17324785,
+      "compliy": "科创",
+      "location": "经理"
+      
+    },
+    {
+     "name": "李四",
+      "tel": 17324734,
+      "compliy": "科创",
+      "location": "员工"
+    },
+    {
+      "name": "小张",
+      "tel": 17324783,
+      "compliy": "科创",
+      "location": "员工"
+    },
+    {
+      "name": "小刘",
+      "tel": 17324785,
+      "compliy": "科创",
+      "location": "员工"
+    },
+    {
+     "name": "小李",
+      "tel": 17324785,
+      "compliy": "科创",
+      "location":"员工"
+    }
+  ]
+}

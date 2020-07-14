@@ -1,0 +1,29 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 100,
+  "data": [
+    {
+      "id": 1,
+      "roleid": "r0001",
+      "rolename": "普通职员" ,
+      "memo": " 劳动层" ,
+      "roleprivilige": "三级"
+     },
+    {
+      "id": 2,
+      "roleid": "r0002",
+      "rolename": "部门领导" ,
+      "memo": " 领导层" ,
+      "roleprivilige": "二级"
+    },
+    {
+      "id": 3,
+      "roleid": "r0002",
+      "rolename": "系统管理员" ,
+      "memo": " 最大权限" ,
+      "roleprivilige": "一级"  
+    }
+      
+  ]
+}
