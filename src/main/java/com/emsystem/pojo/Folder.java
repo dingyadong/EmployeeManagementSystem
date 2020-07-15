@@ -5,24 +5,36 @@ String folderName;
 String folderTime;
 String conent;
 
+
 public String getFolderName() {
 	return folderName;
 }
+
+
 public void setFolderName(String folderName) {
 	this.folderName = folderName;
 }
-public String getFileTime() {
+
+
+public String getFolderTime() {
 	return folderTime;
 }
-public void setFileTime(String fileTime) {
-	this.folderTime = fileTime;
+
+
+public void setFolderTime(String folderTime) {
+	this.folderTime = folderTime;
 }
+
+
 public String getConent() {
 	return conent;
 }
+
+
 public void setConent(String conent) {
 	this.conent = conent;
 }
+
 
 public Folder(String folderName, String folderTime, String conent) {
 	this.folderName=folderName;
