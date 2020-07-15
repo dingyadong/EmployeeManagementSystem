@@ -60,9 +60,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			ObjectRlationJson json = new ObjectRlationJson();
 			
 			List<Folder> userList = new ArrayList<Folder>();
-			userList.add(new Folder("妗妗1","1","男"));
-			userList.add(new Folder("妗妗12","1","男"));
-			userList.add(new Folder("妗妗13","1","男"));
+			userList.add(new Folder("妗妗1","2020/07/10 11:05:41","男"));
+			userList.add(new Folder("妗妗12","2020/07/10 11:05:41","男"));
+			userList.add(new Folder("妗妗13","2020/07/10 11:05:41","男"));
 			json.setData(userList);
 	        return json;
 	    }

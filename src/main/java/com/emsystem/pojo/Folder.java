@@ -2,7 +2,7 @@ package com.emsystem.pojo;
 
 public class Folder {
 String folderName;
-String fileTime;
+String folderTime;
 String conent;
 
 public String getFolderName() {
@@ -12,10 +12,10 @@ public void setFolderName(String folderName) {
 	this.folderName = folderName;
 }
 public String getFileTime() {
-	return fileTime;
+	return folderTime;
 }
 public void setFileTime(String fileTime) {
-	this.fileTime = fileTime;
+	this.folderTime = fileTime;
 }
 public String getConent() {
 	return conent;
@@ -24,9 +24,9 @@ public void setConent(String conent) {
 	this.conent = conent;
 }
 
-public Folder(String folderName, String fileTime, String conent) {
+public Folder(String folderName, String folderTime, String conent) {
 	this.folderName=folderName;
-	this.fileTime=fileTime;
+	this.folderTime=folderTime;
 	this.conent=conent;
 }
 
