@@ -99,6 +99,11 @@
                     , data = checkStatus.data;
                 layer.alert(JSON.stringify(data));
             }
+            else if (obj.event === 'share') {  // 监听删除操作
+                var checkStatus = table.checkStatus('currentTableId')
+                , data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+        }
         });
 
         //监听表格复选框选择
@@ -129,31 +134,17 @@
                     layer.close(index);
                 });
             }
+            else if (obj.event === 'share') {
+                layer.confirm('确定共享吗？', function (index) {
+                    obj.del();
+                    layer.close(index);
+                });
+            }
+            
         });
         
         
-        table.on('toolbar(currentTableFilter)', function (obj) {
-            if (obj.event === 'share') {  // 监听删除操作
-               var checkStatus = table.checkStatus('currentTableId')
-                   , data = checkStatus.data;
-               layer.alert(JSON.stringify(data));
-           }
-       });
-
-       //监听表格复选框选择
-       table.on('checkbox(currentTableFilter)', function (obj) {
-           console.log(obj)
-       });
-
-       table.on('tool(currentTableFilter)', function (obj) {
-           var data = obj.data;
-          if (obj.event === 'share') {
-               layer.confirm('确定共享吗？', function (index) {
-                   obj.del();
-                   layer.close(index);
-               });
-           }
-       });
+      
 
     });
 </script>
