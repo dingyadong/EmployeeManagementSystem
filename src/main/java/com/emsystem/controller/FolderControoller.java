@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.emsystem.pojo.Folder;
+import com.emsystem.pojo.ObjectRlationJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -55,13 +56,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		
 		@RequestMapping(value = "/testJson",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
-	    public List<Folder> testjson(){
+	    public ObjectRlationJson testjson(){
+			ObjectRlationJson json = new ObjectRlationJson();
+			
 			List<Folder> userList = new ArrayList<Folder>();
 			userList.add(new Folder("妗妗1","1","男"));
 			userList.add(new Folder("妗妗12","1","男"));
 			userList.add(new Folder("妗妗13","1","男"));
-	
-	        return userList;
+			json.setData(userList);
+	        return json;
 	    }
 
 		
