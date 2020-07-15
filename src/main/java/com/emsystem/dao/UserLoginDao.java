@@ -7,7 +7,7 @@ import com.emsystem.pojo.UserLogin;
 
 public interface UserLoginDao {
 	//登录 用户名或密码都可以使用
-	@Select("select * from t_user where flag=2 and (username=#{name} or email=#{email})")
+	@Select("select * from user where system_role=2 and user_name=#{name}")
 	@ResultType(UserLogin.class)
 	//public
 	UserLogin select(String name);
