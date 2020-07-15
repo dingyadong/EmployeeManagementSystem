@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 	public class UserInformationSearchControoller {
-	@Autowired
+	@Autowired  
 	private UserLoginService userServicelogin;
 
 	// 登陆
