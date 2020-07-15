@@ -2,30 +2,32 @@ package com.emsystem.pojo;
 
 public class Folder {
 String folderName;
-String date;
-String neirong;
-public Folder(String string, String string2, String string3) {
-	this.folderName = string;
-	this.date = string2;
-	this.neirong = string3;
-	
-}
+String fileTime;
+String conent;
+
 public String getFolderName() {
 	return folderName;
 }
 public void setFolderName(String folderName) {
 	this.folderName = folderName;
 }
-public String getDate() {
-	return date;
+public String getFileTime() {
+	return fileTime;
 }
-public void setDate(String date) {
-	this.date = date;
+public void setFileTime(String fileTime) {
+	this.fileTime = fileTime;
 }
-public String getNeirong() {
-	return neirong;
+public String getConent() {
+	return conent;
 }
-public void setNeirong(String neirong) {
-	this.neirong = neirong;
+public void setConent(String conent) {
+	this.conent = conent;
 }
+
+public Folder(String folderName, String fileTime, String conent) {
+	this.folderName=folderName;
+	this.fileTime=fileTime;
+	this.conent=conent;
+}
+
 }
