@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/emsystem/controller/FolderController.java=UTF-8
-encoding//src/main/java/com/emsystem/controller/UserInformationSearchControoller.java=UTF-8
-encoding//src/main/java/com/emsystem/controller/UserLoginControoller.java=UTF-8
+encoding//src/main/java/com/emsystem/controller/UserInformationController.java=UTF-8
+encoding//src/main/java/com/emsystem/controller/UserLoginController.java=UTF-8

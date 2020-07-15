@@ -10,7 +10,12 @@ import com.emsystem.pojo.UserInformation;
  *
  */
 
-public  interface UserInformationSearchService {
+public  interface UserInformationService {
 	//通过名字查询
 	List<UserInformation> queryByName(String name);
+	//新增
+	
+	boolean save(UserInformation users);
+	
 }
+

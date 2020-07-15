@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller
-	public class UserLoginControoller {
+	public class UserLoginController {
 	@Autowired
 	private UserLoginService userServicelogin;
 

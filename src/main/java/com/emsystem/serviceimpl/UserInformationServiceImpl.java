@@ -5,23 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.emsystem.dao.UserInformationSearchDao;
+import com.emsystem.dao.UserInformationDao;
 import com.emsystem.pojo.UserInformation;
-import com.emsystem.service.UserInformationSearchService;
+import com.emsystem.service.UserInformationService;
 @Service
 /**
  * 
  * @author 137213582@QQ.com
  *
  */
-public class UserInformationSearchServiceImpl implements UserInformationSearchService{
+public class UserInformationServiceImpl implements UserInformationService{
 	@Autowired
-	private UserInformationSearchDao dao;
+	private UserInformationDao dao;
 	@Override
 	public List<UserInformation> queryByName(String name) {
 		//模糊查询
 		return dao.queryName(name);
 	}
 	
+	@Override
+	public boolean save(UserInformation users) {
+		// TODO Auto-generated method stub
+		return dao.save(users)>0;
+	}
 
 }
