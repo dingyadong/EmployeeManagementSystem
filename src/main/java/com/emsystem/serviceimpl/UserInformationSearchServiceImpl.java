@@ -9,6 +9,11 @@ import com.emsystem.dao.UserInformationSearchDao;
 import com.emsystem.pojo.UserInformation;
 import com.emsystem.service.UserInformationSearchService;
 @Service
+/**
+ * 
+ * @author 137213582@QQ.com
+ *
+ */
 public class UserInformationSearchServiceImpl implements UserInformationSearchService{
 	@Autowired
 	private UserInformationSearchDao dao;
