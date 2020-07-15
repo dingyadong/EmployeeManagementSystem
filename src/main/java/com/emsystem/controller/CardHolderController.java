@@ -8,8 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.emsystem.pojo.CardHolder;
-import com.emsystem.pojo.Folder;
 import com.emsystem.pojo.ObjectRlationJson;
+
+
+/*
+ * 实现功能：名片夹的控制器
+ * 分工：丁亚东
+ * 日期：2020/7/15
+ * 
+ */
+
 @Controller
 public class CardHolderController {
   
