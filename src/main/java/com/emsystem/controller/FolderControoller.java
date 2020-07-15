@@ -53,5 +53,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		return srt;
 		}
 		
+		@RequestMapping(value = "/testJson",produces ={ "application/json;charset=UTF-8"})
+	    @ResponseBody
+	    public List<Folder> testjson(){
+			List<Folder> userList = new ArrayList<Folder>();
+			userList.add(new Folder("妗妗1","1","男"));
+			userList.add(new Folder("妗妗12","1","男"));
+			userList.add(new Folder("妗妗13","1","男"));
+	
+	        return userList;
+	    }
+
+		
 
 }
