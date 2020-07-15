@@ -1,4 +1,4 @@
-package com.emSystem.pojo;
+package com.emsystem.pojo;
 
 public class Folder {
 String folderName;
