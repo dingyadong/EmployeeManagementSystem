@@ -9,23 +9,10 @@
 	
 	<!-- 启用注解 -->
 	<mvc:annotation-driven>
-	    <mvc:message-converters register-defaults="true">
-        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-            <constructor-arg value="UTF-8"/>
-        </bean>
-        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-            <property name="objectMapper">
-                <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
-                    <property name="failOnEmptyBeans" value="false"/>
-                </bean>
-            </property>
-        </bean>
-    </mvc:message-converters>
-	
-<!-- 		<mvc:message-converters> 
+ 		<mvc:message-converters> 
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-        </mvc:message-converters> -->
+        </mvc:message-converters> 
 	</mvc:annotation-driven>
 	
 	
@@ -35,7 +22,7 @@
 
 	
     <!-- 配置SpringMVC --> 
-	<context:component-scan base-package="com.emSystem" use-default-filters="false">
+	<context:component-scan base-package="com.emsystem" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	

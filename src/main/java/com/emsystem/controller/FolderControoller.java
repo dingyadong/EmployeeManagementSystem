@@ -1,44 +1,36 @@
-package com.emSystem.controller;
+package com.emsystem.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.emSystem.pojo.Folder;
+
+import com.emsystem.pojo.Folder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-	@Controller
+@Controller
 	public class FolderControoller {
-		@Autowired
+		
 		
 		@RequestMapping("/upload")
 		public String upload(){
 			
-			return "upload";
+			return "index";
 		}
 		
 		
 		@RequestMapping("/a2")
-		public String ajaxtest(){
+		public String a2(){
+			System.out.println("123");
 		List<Folder> userList = new ArrayList<Folder>();
 		userList.add(new Folder("妗妗1","1","男"));
 		userList.add(new Folder("妗妗12","1","男"));
@@ -56,6 +48,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		return srt;
 		}
 		

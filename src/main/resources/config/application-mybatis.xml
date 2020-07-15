@@ -20,7 +20,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- <property name="mapperLocations" value="classpath:com/emsystem/dao/*.xml"></property> -->
-		<property name="typeAliasesPackage" value="com.emsystem.entity"></property>
+		<property name="typeAliasesPackage" value="com.emsystem.pojo"></property>
 	</bean>
 	
 	<!-- 扫描包 -->
