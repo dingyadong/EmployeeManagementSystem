@@ -54,7 +54,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		return srt;
 		}
 		
-		@RequestMapping(value = "/testJson",produces ={ "application/json;charset=UTF-8"})
+		@RequestMapping(value = "/folderList",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson testjson(){
 			ObjectRlationJson json = new ObjectRlationJson();
