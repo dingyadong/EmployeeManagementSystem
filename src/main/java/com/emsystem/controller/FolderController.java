@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  */
 @Controller
-	public class FolderControoller {
+	public class FolderController {
 		
 		
 		@RequestMapping("/upload")
