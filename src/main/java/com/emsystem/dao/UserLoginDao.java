@@ -15,4 +15,5 @@ public interface UserLoginDao {
 	@ResultType(UserLogin.class)
 	//public
 	UserLogin select(String name);
+	
 }

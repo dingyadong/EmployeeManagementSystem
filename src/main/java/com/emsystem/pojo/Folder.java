@@ -4,6 +4,17 @@ public class Folder {
 String folderName;
 String folderTime;
 String conent;
+boolean shareStatus;
+
+
+public boolean isShareStatus() {
+	return shareStatus;
+}
+
+
+public void setShareStatus(boolean shareStatus) {
+	this.shareStatus = shareStatus;
+}
 
 
 public String getFolderName() {

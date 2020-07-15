@@ -10,9 +10,16 @@ import com.emsystem.service.UserInformationSearchService;
 
 @Controller
 	public class UserInformationSearchControoller {
+<<<<<<< HEAD
 	@Autowired
 	private UserInformationSearchService userS;
 	//查询
+=======
+	@Autowired  
+	private UserLoginService userServicelogin;
+
+	// 登陆
+>>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
 	@RequestMapping("selectByName")
 	public String selectByName(String name, Model model) {
 		model.addAttribute("UserList", userS.queryByName(name));

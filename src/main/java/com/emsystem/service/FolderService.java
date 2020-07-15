@@ -1,5 +1,10 @@
 package com.emsystem.service;
 
-public class FolderService {
+import java.util.List;
 
+import com.emsystem.pojo.Folder;
+
+public interface FolderService {
+	public List<Folder> FolderList();
+	public List<Folder> ShareFolderList();
 }

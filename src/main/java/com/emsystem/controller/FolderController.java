@@ -17,9 +17,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-
+/*
+ * 实现功能：个人文件的控制器
+ * 分工：丁亚东
+ * 日期：2020/7/15
+ * 
+ */
 @Controller
-	public class FolderControoller {
+	public class FolderController {
 		
 		
 		@RequestMapping("/upload")
@@ -54,7 +59,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		return srt;
 		}
 		
-		@RequestMapping(value = "/testJson",produces ={ "application/json;charset=UTF-8"})
+		@RequestMapping(value = "/folderList",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson testjson(){
 			ObjectRlationJson json = new ObjectRlationJson();
