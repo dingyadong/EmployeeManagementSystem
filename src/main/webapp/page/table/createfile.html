@@ -19,13 +19,13 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">文件夹名称</label>
         <div class="layui-input-block">
-            <input type="text" name="filename" lay-verify="required" lay-reqtext="名称不能为空" placeholder="请输入文件夹名称" value="" class="layui-input">
+            <input type="text" name="foldername" lay-verify="required" lay-reqtext="名称不能为空" placeholder="请输入文件夹名称" value="" class="layui-input">
         </div>
     </div>
      <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">内容</label>
         <div class="layui-input-block">
-            <textarea name="conent" class="layui-textarea" placeholder="请输入内容"></textarea>
+            <textarea name="content" id="content" class="layui-textarea" placeholder="请输入内容"></textarea>
         </div>
     </div>
    
@@ -37,28 +37,32 @@
     </div>
 </div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+
 <script>
     layui.use(['form'], function () {
         var form = layui.form,
             layer = layui.layer,
             $ = layui.$;
-
+	
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var index = layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            }, function () {
-
-                // 关闭弹出层
-                layer.close(index);
-
-                var iframeIndex = parent.layer.getFrameIndex(window.name);
-                parent.layer.close(iframeIndex);
-
-            });
-
+        	var foldername = $('input[name="foldername"]').val();
+        	var content = $("#content").val();
+        	 $.ajax({
+                 url:"../../insertFile.do",
+                 type:"GET",
+                 //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                 data:"folderName="+foldername+"&content="+content,
+                 /* data:hobby+"&name="+name+"&age="+age+"&sex="+sex+"&address="+address,    */ 
+                 dataType:"json",
+                 success:function (data) {
+                     alert(data.data);
+                 }
+        	 
+             });
             return false;
-        });
+        }
+        );
 
     });
 </script>

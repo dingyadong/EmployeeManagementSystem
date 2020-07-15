@@ -3,7 +3,7 @@ package com.emsystem.pojo;
 public class Folder {
 String folderName;
 String folderTime;
-String conent;
+String content;
 boolean shareStatus;
 
 
@@ -37,20 +37,21 @@ public void setFolderTime(String folderTime) {
 }
 
 
-public String getConent() {
-	return conent;
+
+public String getContent() {
+	return content;
 }
 
 
-public void setConent(String conent) {
-	this.conent = conent;
+public void setContent(String content) {
+	this.content = content;
 }
 
 
-public Folder(String folderName, String folderTime, String conent) {
+public Folder(String folderName, String folderTime, String content) {
 	this.folderName=folderName;
 	this.folderTime=folderTime;
-	this.conent=conent;
+	this.content=content;
 }
 
 }

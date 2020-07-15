@@ -33,7 +33,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			return "index";
 		}
 		
+ 
 		
+		@RequestMapping(value = "/insertFile",produces ={ "application/json;charset=UTF-8"})
+	    @ResponseBody
+	    public ObjectRlationJson insertFile(Folder folder){
+			
+			ObjectRlationJson json = new ObjectRlationJson();
+			
+			List<Folder> userList = new ArrayList<Folder>();
+			userList.add(new Folder("妗妗1","2020/07/10 11:05:41","男"));
+			userList.add(new Folder("妗妗12","2020/07/10 11:05:41","男"));
+			userList.add(new Folder("妗妗13","2020/07/10 11:05:41","男"));
+			json.setData(userList);
+			System.out.println("OK");
+			System.out.println(folder.getFolderName()+folder.getContent());
+	        return json;
+	    }
+		
+			
+			
 		@RequestMapping("/a2")
 		@ResponseBody
 		public String a2(){
@@ -42,7 +61,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		userList.add(new Folder("妗妗1","1","男"));
 		userList.add(new Folder("妗妗12","1","男"));
 		userList.add(new Folder("妗妗13","1","男"));
-		Folder user4 = new Folder("妗妗14","1","男");
 		System.out.println(userList);
 		ObjectMapper mapper = new ObjectMapper();
 
