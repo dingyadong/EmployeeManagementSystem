@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	private UserLoginService userServicelogin;
 
 	// 登陆
-	@RequestMapping("userlogin")
+	@RequestMapping("/userlogin")
 	public String login(String username, String password, Model model, HttpSession session) {
 		if (!StrUtils.empty(username, password)) {
 			UserLogin userlogin = userServicelogin.getUserByName(username);
