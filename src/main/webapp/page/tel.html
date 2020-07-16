@@ -125,21 +125,25 @@
                 });
                 return false;
             } else if (obj.event === 'delete') {
+              
                 layer.confirm('确定删除吗？', function (index) {
-                    obj.del();
-                    layer.close(index);
-              /* $.ajax({
+                	
+                	 $.ajax({
                          url:"../dualjson.do",
                          type:"GET",
                          //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
-                         data:"user_id="+obj.data.user_id,
+                         data:"addresslist_id="+obj.data.addresslist_id,
                          dataType:"json",
                          success:function (data) {
                              alert(data.msg);
-                         } */
+                         }
                 	 
-             
+                     });
+                    obj.del();
+                    layer.close(index);
                 });
+                   
+              
             }
         });
 

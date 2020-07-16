@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emsystem.dao.UserInformationDao;
-import com.emsystem.pojo.Department;
 import com.emsystem.pojo.UserInformation;
 import com.emsystem.service.UserInformationService;
 @Service

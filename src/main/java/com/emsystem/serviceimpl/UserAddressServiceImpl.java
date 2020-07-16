@@ -21,29 +21,11 @@ public class UserAddressServiceImpl implements UserAddressService {
 	}
 
 	@Override
-	public UserAddresslist querySingle(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean save(UserAddresslist a) {
-		// TODO Auto-generated method stub
-		return dao.save(a);
-//		return false;
-	}
-
-	@Override
-	public boolean update(UserAddresslist a) {
-		// TODO Auto-generated method stub
-		return dao.update(a);
-//		return false;
-	}
-
-	@Override
 	public int delete(int did) {
 		// TODO Auto-generated method stub
 		return dao.delete(did);
 //		return 0;
 	}
+	
+	
 }
