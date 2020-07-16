@@ -33,7 +33,7 @@ public class UserAddresslistController {
 	@ResponseBody
 	public ObjectRlationJson showuseraddresslist(){	
 		ObjectRlationJson json = new ObjectRlationJson();
-		json.setData(useraddresslist.queryAll());
+		json.setData(useraddresslist.queryAll());  
 	    return json;
 	}
 	
