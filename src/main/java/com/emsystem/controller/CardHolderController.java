@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.emsystem.dao.CardHolderDao;
 import com.emsystem.pojo.CardHolder;
+import com.emsystem.pojo.CardHolderClass;
 import com.emsystem.pojo.ObjectRlationJson;
 
 
 /*
- * ÊµÏÖ¹¦ÄÜ£ºÃûÆ¬¼ĞµÄ¿ØÖÆÆ÷
- * ·Ö¹¤£º¶¡ÑÇ¶«
- * ÈÕÆÚ£º2020/7/15
+ * Êµï¿½Ö¹ï¿½ï¿½Ü£ï¿½ï¿½ï¿½Æ¬ï¿½ĞµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½
+ * ï¿½ï¿½ï¿½Ú£ï¿½2020/7/15
  * 
  */
 
@@ -26,17 +27,17 @@ public class CardHolderController {
   @Autowired
   CardHolderDao dao;
 	
-  //ÏÔÊ¾ËùÓĞÃûÆ¬
+  //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
 	@RequestMapping(value = "/cardHolderList",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
     public ObjectRlationJson cardHolderList(){
 		ObjectRlationJson json = new ObjectRlationJson();
-		List<CardHolder> List = dao.queryAll();
+		List<CardHolder> List = dao.queryAllName_card();
 		json.setData(List);
         return json;
     }
 	
-	  //ÏÔÊ¾ËùÓĞÃûÆ¬
+	  //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
 		@RequestMapping(value = "/insertCart",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson insertCart(CardHolder card) throws SQLException{
@@ -44,20 +45,20 @@ public class CardHolderController {
 			
 			int insertNum = dao.addCard(card);
 			if(insertNum!=0){
-				json.setMsg("Ìí¼Ó³É¹¦£¡");
+				json.setMsg("æ·»åŠ æˆåŠŸï¼");
 			}else {
-				json.setMsg("Ìí¼ÓÊ§°Ü£¡");
+				json.setMsg("æ·»åŠ å¤±è´¥ï¼");
 			}
 	        return json;
 	    }
 	
-	//ÏÔÊ¾·ÖÀà
+	//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/cardHolderClassify",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
     public ObjectRlationJson cardHolderClassify(){
 		ObjectRlationJson json = new ObjectRlationJson();
 		  
-		List<CardHolder> userList = new ArrayList<CardHolder>();
+		List<CardHolderClass> userList = dao.queryCardClass();
 		json.setData(userList);
         return json;
     }
