@@ -157,8 +157,8 @@
                     	
                     	var body=layer.getChildFrame('body',index);//少了这个是不能从父页面向子页面传值的
                     	//获取子页面的元素，进行数据渲染
-                    	body.contents().find ('#user_name').val(data.user_name);
-                    	body.contents().find('#department_name').val (data.department_name);
+                    	body.contents().find ('#username').val(data.user_name);
+                    	body.contents().find('#departmentname').val(data.department_name);
                     	body.contents().find ('#contact').val(data.contact);
                     	body.contents().find('#post').val(data.post);
                     	}
