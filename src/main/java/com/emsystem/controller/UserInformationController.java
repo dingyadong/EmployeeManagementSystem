@@ -44,14 +44,16 @@ import com.emsystem.service.UserInformationService;
 //		return json;
 //	}
 	
+	
 	// 员工新增
-	@RequestMapping("adduser")
-	public String save(MultipartFile file, UserInformation user, HttpServletRequest request)
+	@RequestMapping(value = "/adduser")
+    public String save(MultipartFile file, UserInformation user, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 		if (userI.save(user)) {
+			System.out.print("成功");
 			return "index";
 		} else {
-			request.setAttribute("msg", "添加失败，重新再来");
+			System.out.print("失败");
 			return "index";
 		}
 	}
