@@ -33,7 +33,7 @@ public class DepartmentController {
 		ObjectRlationJson json = new ObjectRlationJson();
 		json.setData(service.queryAll());
 		return json;  
-	}   
+	}     
 	
 	/**
 	 * 部门添加
