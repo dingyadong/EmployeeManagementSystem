@@ -15,9 +15,9 @@ import com.emsystem.pojo.UserInformation;
  */
 public interface UserInformationDao {
 	//鏍规嵁鐢ㄦ埛鍚嶆ā绯婃煡璇�
-	@Select("select * from user where name LIKE CONCAT(CONCAT('%', #{user_name}),'%');")
+	@Select("select * from user where user_name LIKE CONCAT(CONCAT('%', #{user_name}),'%');")
 	@ResultType(UserInformation.class)
-	public List<UserInformation> queryName(String name);
+	public List<UserInformation> queryName(String user_name);
 	
 	//鏂板
 	@Insert("insert into user(user_id,user_name,password,user_sex,user_age,system_role,post,department_name,self,hobbies,telephone) values(#{user_id},#{user_name},#{password},#{user_sex},#{user_age},#{system_role},#{post},#{department_name},#{self},#{hobbies},#{telephone})")
