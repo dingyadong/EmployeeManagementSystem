@@ -18,5 +18,35 @@ session.setAttribute("basePath", basePath);
 	<input type="file" name="mulFile">
 	<button type="submit">上传</button>
 </form>
+
+<script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
+	
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+        	var foldername = $('input[name="foldername"]').val();
+        	var content = $("#content").val();
+        	 $.ajax({
+                 url:"../../insertFile.do",
+                 type:"GET",
+                 //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                 data:"folderName="+foldername+"&content="+content,
+                 /* data:hobby+"&name="+name+"&age="+age+"&sex="+sex+"&address="+address,    */ 
+                 dataType:"json",
+                 success:function (data) {
+                     alert(data.data);
+                 }
+        	 
+             });
+            return false;
+        }
+        );
+
+    });
+</script>
 </body>
 </html>

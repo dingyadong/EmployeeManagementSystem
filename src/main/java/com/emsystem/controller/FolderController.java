@@ -41,14 +41,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		
  
 		
-		@RequestMapping("/doupload")
-		public String doUpload(@RequestParam(required=false) MultipartFile mulFile,HttpServletRequest request){
+		@RequestMapping(value ="/doupload",produces ={ "application/json;charset=UTF-8"})
+		@ResponseBody
+		public ObjectRlationJson doUpload(@RequestParam(required=false) MultipartFile mulFile,HttpServletRequest request){
 			System.out.println("file name = " + mulFile.getName());
 			System.out.println("file real name = " + mulFile.getOriginalFilename());
 			String fileUrl = "/upload/" + 
 					FileUtil.createRandomFileName() + mulFile.getOriginalFilename();
 			fileUrl = request.getServletContext().getRealPath(fileUrl);
 			System.out.println("file real url = " + fileUrl);
+			ObjectRlationJson json = new ObjectRlationJson();
 			
 			try {
 				FileUtil.copyFileToDisk(fileUrl, mulFile);
@@ -59,11 +61,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				json.setMsg("文件传输异常！");
+				return json;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				json.setMsg("数据库异常！");
+				return json;
 			}
-			return "index";
+			json.setMsg("提交成功！");
+			return json;
 		}
 		
 		
