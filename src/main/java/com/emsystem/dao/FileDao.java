@@ -24,7 +24,7 @@ public interface FileDao {
 	
 	@Delete("delete from file where file_id = #{file_id}")
 	public int deleteFileById(Integer file_id);
-	
+	  
 	@Update("update file set file_share = 1 where file_id = #{file_id}")
 	public int updateFileById(Integer file_id);
 	
