@@ -50,7 +50,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../api/menus.json',
+            url: '../schedljson.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -59,10 +59,10 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'sendName', width: 135, title: '发出人'},
-                {field: 'acceptName', width: 135, title: '收到人'},
-                {field: 'sendTime', width: 210, title: '发出时间'},
-                {field: 'state', width: 80, title: '状态'},
+                {field: 'user_id', width: 135, title: '员工号'},
+                {field: 'date', width: 135, title: '发起时间'},
+                {field: 'object', width: 210, title: '具体事件'},
+             
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
