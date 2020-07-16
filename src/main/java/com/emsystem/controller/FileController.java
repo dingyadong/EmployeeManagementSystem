@@ -57,17 +57,22 @@ import com.emsystem.utils.FileUtil;
 	        return json;
 	    }
 		
-		
-		@RequestMapping(value = "/shareFoloderList",produces ={"application/json;charset=UTF-8"})
+		@RequestMapping(value = "/deleteFile",produces ={"application/json;charset=UTF-8"})
 	    @ResponseBody
-	    public ObjectRlationJson shareFoloderList(){
+	    public ObjectRlationJson deleteFile(File fileInfo) throws SQLException{
 			ObjectRlationJson json = new ObjectRlationJson();
 			
-			List<File> List = fileService.ShareFileList();
-			json.setData(List);
+			int deleteNum = fileDao.deleteFileById(fileInfo.getFile_id());
+			if(deleteNum!=0){
+				json.setMsg("删除成功！");
+			}else {
+				json.setMsg("删除失败！");
+			}
 	        return json;
 	    }
 		
+		
+
 		
 		
 		
@@ -106,10 +111,12 @@ import com.emsystem.utils.FileUtil;
 		@RequestMapping("/download")
 		public ResponseEntity<byte[]> download(File fileInfo) {
 			try {
-				System.out.println("fileInfo.fileId = " + fileInfo.getFile_id());
-				List<File> files = fileDao.fileList();
-				String fileUrl = files.get(0).getFile_url();
-				String fileName = files.get(0).getFile_name();
+			
+				File files = fileDao.fileById(fileInfo.getFile_id());
+				String fileUrl = files.getFile_url();
+				String fileName = files.getFile_name();
+				System.out.println("fileInfo.fileUrl = " + fileUrl +"filename = "+fileName);
+				
 				HttpHeaders headers = new HttpHeaders();
 				headers.setContentDispositionFormData("attachment", new String(fileName.getBytes("UTF-8"),"iso-8859-1"));
 				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
@@ -124,6 +131,7 @@ import com.emsystem.utils.FileUtil;
 			return null;
 		}
 		
+
 		
 		
 /*		@RequestMapping(value = "/insertFile",produces ={"application/json;charset=UTF-8"})

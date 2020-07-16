@@ -12,7 +12,7 @@ session.setAttribute("basePath", basePath);
 <title>Insert title here</title>
 </head>
 <body>
-<a href="${basePath }user/index.do">首页</a>
+<p>
 <h3>选择文件</h3>
 <form enctype="multipart/form-data" method="post" action="${basePath }doupload.do">
 	<input type="file" name="mulFile">
