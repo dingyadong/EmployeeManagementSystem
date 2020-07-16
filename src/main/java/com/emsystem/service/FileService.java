@@ -1,10 +1,9 @@
 package com.emsystem.service;
 
 import java.util.List;
-
-import com.emsystem.pojo.file;
+import com.emsystem.pojo.File;
 
 public interface FileService {
-	public List<file> FileList();
-	public List<file> ShareFileList();
+	public List<File> FileList();
+	public List<File> ShareFileList();
 }

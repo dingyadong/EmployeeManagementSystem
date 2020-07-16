@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.emsystem.pojo.file;
+import com.emsystem.pojo.File;
 import com.emsystem.pojo.ObjectRlationJson;
 /*
  * 实现功能：共享文件夹的控制器
@@ -23,7 +23,7 @@ public class ShareFolderController {
     public ObjectRlationJson testjson(){
 		ObjectRlationJson json = new ObjectRlationJson();
 		
-		List<file> userList = new ArrayList<file>();
+		List<File> userList = new ArrayList<File>();
 
 		json.setData(userList);
         return json;

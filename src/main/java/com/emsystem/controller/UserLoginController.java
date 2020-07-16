@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.emsystem.pojo.file;
+import com.emsystem.pojo.File;
 import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.pojo.UserLogin;
 import com.emsystem.service.UserLoginService;

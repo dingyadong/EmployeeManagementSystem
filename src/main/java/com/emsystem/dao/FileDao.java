@@ -7,22 +7,21 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
 
-import com.emsystem.pojo.file;
-import com.emsystem.pojo.UserInformation;
+import com.emsystem.pojo.File;
 public interface FileDao {
-	public  void addFolderInfo(file folderInfo) throws SQLException;
+
 
 	
 	@Select("select * from file")
-	@ResultType(file.class)
-	public List<file> FolderList();
+	@ResultType(File.class)
+	public List<File> fileList();
 	
 	@Select("select * from file where file_share=1")
-	@ResultType(file.class)
-	public List<file> ShareFolderList();
+	@ResultType(File.class)
+	public List<File> SharefileList();
 	
-	@Insert("insert into file(file_name,file_url,file_share) values(#{folderName},#{folderUrl},0)")
-	public int addFolderInfo(UserInformation users);
+	@Insert("insert into file(file_name,file_url,file_share) values(#{file_name},#{file_url},0)")
+	public int addfileInfo(File file) throws SQLException;
 	
 
 }
