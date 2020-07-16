@@ -56,7 +56,8 @@
                 }
            
             });
-   
+            var iframeIndex = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(iframeIndex);
 
             return false;
         });
