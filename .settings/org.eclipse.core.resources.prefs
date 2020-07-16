@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/emsystem/controller/FolderControoller.java=UTF-8
+<<<<<<< HEAD
 encoding/<project>=UTF-8
+=======
+encoding//src/main/java/com/emsystem/controller/UserInformationSearchControoller.java=UTF-8
+encoding//src/main/java/com/emsystem/controller/UserLoginControoller.java=UTF-8
+>>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
