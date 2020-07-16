@@ -32,7 +32,7 @@ public class DepartmentController {
 	public ObjectRlationJson showjson() {
 		ObjectRlationJson json = new ObjectRlationJson();
 		json.setData(service.queryAll());
-		return json;
+		return json;  
 	}   
 	
 	/**
