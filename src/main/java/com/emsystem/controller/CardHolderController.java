@@ -30,7 +30,8 @@ public class CardHolderController {
   //��ʾ������Ƭ
 	@RequestMapping(value = "/cardHolderList",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
-    public ObjectRlationJson cardHolderList(){
+    public ObjectRlationJson cardHolderList(String keyword1,String keyword2){
+		System.out.println(keyword1+keyword2);
 		ObjectRlationJson json = new ObjectRlationJson();
 		List<CardHolder> List = dao.queryAllName_card();
 		json.setData(List);
@@ -55,6 +56,8 @@ public class CardHolderController {
 		@RequestMapping(value = "/cardKeyWord",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson cardKeyWord1(String keyword1,String keyword2){
+			System.out.println(keyword1+keyword2);
+			System.out.println("测试成功！");
 			ObjectRlationJson json = new ObjectRlationJson();
 			List<CardHolder> List;
 			if(keyword1 !=null & keyword2 != null){
@@ -66,6 +69,7 @@ public class CardHolderController {
 			}
 			
 			json.setData(List);
+			System.out.println(json);
 	        return json;
 	    }
 		

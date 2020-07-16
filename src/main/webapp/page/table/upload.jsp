@@ -26,7 +26,7 @@ session.setAttribute("basePath", basePath);
             layer = layui.layer,
             $ = layui.$;
 	
-        //监听提交
+/*         //监听提交
         form.on('submit(saveBtn)', function (data) {
         	var foldername = $('input[name="foldername"]').val();
         	var content = $("#content").val();
@@ -34,7 +34,7 @@ session.setAttribute("basePath", basePath);
                  url:"../../doupload.do",
                  type:"GET",
                  //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
-                 data:"folderName="+foldername+"&content="+content,
+                 data:"file_name="+foldername+"&content="+content,
                  dataType:"json",
                  success:function (data) {
                      alert(data.msg);
@@ -42,7 +42,7 @@ session.setAttribute("basePath", basePath);
              });
             return false;
         }
-        );
+        ); */
 
     });
 </script>
