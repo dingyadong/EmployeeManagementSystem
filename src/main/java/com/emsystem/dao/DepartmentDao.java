@@ -20,7 +20,7 @@ public interface DepartmentDao {
 	@Select("select * from department where department_id=#{department_id}")
 	public Department querySingle(int department_id);
 	//新增
-	@Insert("insert into department(depament_name) values(#{depament_name})")
+	@Insert("insert into department(department_id,depatment_name) values(#{department_id},#{depatment_name})")
 	int save(Department d);
 	//编辑
 	@Update("update department set depament_name=#{depament_name} where department_id=#{department_id}")
