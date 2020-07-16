@@ -21,6 +21,7 @@ public class SchedulingprogramController {
 	 * 查询
 	 */
 	
+	
 	@Autowired
 	private SchedulingprogramService schedulingplist;
 	@RequestMapping(value = "/schedljson",produces ={ "application/json;charset=UTF-8"})
