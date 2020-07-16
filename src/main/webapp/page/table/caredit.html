@@ -15,11 +15,16 @@
     </style>
 </head>
 <body>
+
+
+
+
+
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
        <label class="layui-form-label required">姓名</label>
         <div class="layui-input-block">
-            <input type="text" name="username" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入姓名" value="" class="layui-input">
+            <input type="text" name="username" id="username" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入姓名" value="" class="layui-input">
         </div>
     </div>
     
@@ -50,7 +55,11 @@
 </div>
 </div>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+
+
 <script>
+	
+
     layui.use(['form'], function () {
         var form = layui.form,
             layer = layui.layer,
@@ -58,6 +67,9 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
+       
+        	
+        	
             var index = layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             }, function () {
@@ -67,6 +79,10 @@
 
                 var iframeIndex = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(iframeIndex);
+                setTimeout(function(){
+                	//w indow. parent. location. href = 'list. do';或者
+                	parent.location.reload();//刷新父页面
+                	},5*100);//延迟500毫秒
 
             });
 
@@ -74,6 +90,10 @@
         });
 
     });
+    
+    
+   
+
 </script>
 </body>
 </html>
