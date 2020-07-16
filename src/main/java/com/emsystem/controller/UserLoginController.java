@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	private UserLoginService userServicelogin;
 
 	// 登陆
-	@RequestMapping("/userlogin")
+	@RequestMapping(value = "/userlogin",produces ={"application/json;charset=UTF-8"})
 	public String login(String username, String password, Model model, HttpSession session) {
 		if (!StrUtils.empty(username, password)) {
 			UserLogin userlogin = userServicelogin.getUserByName(username);
@@ -45,7 +45,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			}
 		}
 		model.addAttribute("loginMsg", "用户名或密码错误");
-		return "login";
+		return "page/login-1";
 	}	
 
 }
