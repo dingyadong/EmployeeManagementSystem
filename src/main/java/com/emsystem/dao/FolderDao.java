@@ -12,7 +12,7 @@ public interface FolderDao {
 	public  List<Folder> ShareFolderList();
 	public  List<Folder> FolderList();
 	
-	@Insert("insert into file(file_name,file_url) values(#{floderName},#{floderUrl})")
+	@Insert("insert into file(file_name,file_url,file_share) values(#{folderName},#{folderUrl},0)")
 	public int addFolderInfo(UserInformation users);
 	
 
