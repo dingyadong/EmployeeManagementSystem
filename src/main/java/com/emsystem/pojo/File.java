@@ -1,6 +1,6 @@
 package com.emsystem.pojo;
 
-public class file {
+public class File {
 	private Integer file_id;
 	private String file_url;
 	private String file_name;
@@ -9,6 +9,8 @@ public class file {
 	private int file_share;
 	
 	
+
+
 	public int getFile_share() {
 		return file_share;
 	}

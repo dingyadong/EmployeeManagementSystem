@@ -21,9 +21,13 @@
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 
         <script type="text/html" id="currentTableBar">
+ 		
+			<a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="download">下载</a>
 			<a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="share">共享</a>
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+
+
         </script>
 
     </div>
@@ -46,9 +50,9 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'fileName', width: 135, title: '文件夹名'},
-                {field: 'fileTime', width: 210, title: '新建时间'},
-                {field: 'conent', width: 210, title: '内容'},
+                {field: 'file_id', width: 70, title: 'id'},
+                {field: 'file_name', width: 180, title: '文件名'},
+                {field: 'file_url', width: 400, title: '文件路径'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
@@ -83,7 +87,7 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'add') {  // 监听添加操作
                 var index = layer.open({
-                    title: '新建文件夹',
+                    title: '上传文件',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,
@@ -116,7 +120,7 @@
             if (obj.event === 'edit') {
 
                 var index = layer.open({
-                    title: '编辑文件夹',
+                    title: '编辑文件',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,
@@ -130,17 +134,50 @@
                 return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('确定删除吗？', function (index) {
+                 	 $.ajax({
+                         url:"../deleteFileById.do",
+                         type:"GET",
+                         //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                         data:"file_id="+obj.data.file_id,
+                         dataType:"json",
+                         success:function (data) {
+                             alert(data.msg);
+                         }
+                	 
+                     });
+                 	 
+                 	 
                     obj.del();
                     layer.close(index);
                 });
             }
             else if (obj.event === 'share') {
+            	
+            	
+            	
                 layer.confirm('确定共享吗？', function (index) {
-                    obj.del();
+                	
+                	
+                  	 $.ajax({
+                         url:"../shareFileById.do",
+                         type:"GET",
+                         //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                         data:"file_id="+obj.data.file_id,
+                         dataType:"json",
+                         success:function (data) {
+                             alert(data.msg);
+                         }
+                	 
+                     });
+                    
                     layer.close(index);
                 });
             }
-            
+            else if (obj.event === 'download') {
+            	window.location.href="../download.do?file_id="+obj.data.file_id;
+            }
+          
+           
         });
         
         
