@@ -21,14 +21,14 @@ import com.emsystem.service.UserInformationService;
 	@Autowired
 	private UserInformationService userI;
 
-	// 查询模糊
-	@RequestMapping("selectByName")
-	public String selectByName1(String name, Model model) {
-		model.addAttribute("UserList", userI.queryByName(name));
-		return "page/table";
-		}
+//	// 查询模糊
+//	@RequestMapping("selectByName")
+//	public String selectByName1(String name, Model model) {
+//		model.addAttribute("UserList", userI.queryByName(name));
+//		return "page/table";
+//		}
 	
-	// 查看商品列表
+	// 查看员工列表
 	@RequestMapping(value = "/getallusers",produces ={ "application/json;charset=UTF-8"})
 	@ResponseBody
 	public ObjectRlationJson showjson() {
@@ -36,6 +36,17 @@ import com.emsystem.service.UserInformationService;
 		json.setData(userI.queryAll());
 		return json;
 	}
+	
+	// 查看员工列表（名字）
+	@RequestMapping(value = "/getusersByName",produces ={ "application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson showjson1(String user_name) {
+		ObjectRlationJson json = new ObjectRlationJson();
+		json.setData(userI.queryByName(user_name));
+		return json;
+	}
+	
+	
 //	@RequestMapping(value = "/deptmentjson",produces ={ "application/json;charset=UTF-8"})
 //	@ResponseBody
 //	public ObjectRlationJson showjson() {
@@ -58,6 +69,8 @@ import com.emsystem.service.UserInformationService;
 			return "index";
 		}
 	}
+	
+	
 }
 
 
