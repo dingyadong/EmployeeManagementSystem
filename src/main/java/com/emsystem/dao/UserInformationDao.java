@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
 
+import com.emsystem.pojo.Department;
 import com.emsystem.pojo.UserInformation;
 /**
  * 
@@ -22,4 +23,9 @@ public interface UserInformationDao {
 	@Insert("insert into users(user_id,user_name,password,user_sex,user_age,system_role,post,department_name,self,hobbies,telephone) values(#{user_id},#{user_name},#{password},#{user_sex},#{user_age},#{system_role},#{post},#{department_name},#{self},#{hobbies},#{telephone})")
 	public int save(UserInformation users);
 	
+	//查询所有
+	//查询全部
+	@Select("select * from user")
+	@ResultType(UserInformation.class)
+	List<UserInformation> queryAll();
 }

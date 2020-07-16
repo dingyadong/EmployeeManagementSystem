@@ -35,7 +35,7 @@
 <div class="layui-container">
     <div class="admin-login-background">
         <div class="layui-form login-form">
-            <form class="layui-form" action="userlogin" method="post">
+            <form class="layui-form" action="../userlogin.do" method="post">
                 <div class="layui-form-item logo-title">
                     <h1>LayuiMini后台登录</h1>
                 </div>
@@ -46,7 +46,6 @@
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-password" for="password"></label>
                     <input type="password" name="password" lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input" value="123456">
-                    <span style="color:red;">${loginMsg}</span>  
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-icon layui-icon-vercode" for="captcha"></label>
@@ -57,9 +56,10 @@
                 </div>
                 <div class="layui-form-item">
                     <input type="checkbox" name="rememberMe" value="true" lay-skin="primary" title="记住密码">
+                   <span style="color:red;">${loginMsg}</span> 
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">登 入</button>
+                    <input type="submit" class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login" value="登 入""></input>
                 </div>
             </form>
         </div>
@@ -84,26 +84,6 @@
             });
         });
 
-        // 进行登录操作
-        form.on('submit(login)', function (data) {
-            data = data.field;
-            if (data.username == '') {
-                layer.msg('用户名不能为空');
-                return false;
-            }
-            if (data.password == '') {
-                layer.msg('密码不能为空');
-                return false;
-            }
-            if (data.captcha == '') {
-                layer.msg('验证码不能为空');
-                return false;
-            }
-            layer.msg('登录成功', function () {
-                window.location = '../index.html';
-            });
-            return false;
-        });
     });
 </script>
 </body>
