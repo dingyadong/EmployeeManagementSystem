@@ -35,7 +35,11 @@ public class DepartmentController {
 		return json;
 	}
 	
-	
+	/**
+	 * 部门添加
+	 * @param d前台传过来的departmen对象
+	 * @return
+	 */
 	@RequestMapping(value ="/adddepartment",produces ={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public ObjectRlationJson adddepartmentjson(Department d){
@@ -48,6 +52,6 @@ public class DepartmentController {
 		//System.out.println(d.getDepartment_id());
 		return json;
 	}
-
+	
 
 }
