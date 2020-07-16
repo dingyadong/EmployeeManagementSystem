@@ -1,278 +1,301 @@
-/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/7/15 15:26:29                           */
-/*==============================================================*/
+/*
+Navicat MySQL Data Transfer
 
+Source Server         : aaaa
+Source Server Version : 50539
+Source Host           : localhost:3306
+Source Database       : zaqz
 
-drop table if exists Agent;
+Target Server Type    : MYSQL
+Target Server Version : 50539
+File Encoding         : 65001
 
-drop table if exists Boardroom;
+Date: 2020-07-16 14:49:55
+*/
 
-drop table if exists Department;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists File;
+-- ----------------------------
+-- Table structure for `agent`
+-- ----------------------------
+DROP TABLE IF EXISTS `agent`;
+CREATE TABLE `agent` (
+  `user_id2` int(11) NOT NULL,
+  `agent_id2` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `Use_user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id2`,`agent_id2`),
+  KEY `FK_Relationship_12` (`user_id`),
+  KEY `FK_Relationship_13` (`Use_user_id`),
+  CONSTRAINT `FK_Relationship_13` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_12` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table if exists Information;
+-- ----------------------------
+-- Records of agent
+-- ----------------------------
 
-drop table if exists M_U;
+-- ----------------------------
+-- Table structure for `boardroom`
+-- ----------------------------
+DROP TABLE IF EXISTS `boardroom`;
+CREATE TABLE `boardroom` (
+  `boardroom_id` int(11) NOT NULL,
+  `boardroom_name` varchar(20) DEFAULT NULL,
+  `boardroom_url` varchar(255) DEFAULT NULL,
+  `space` int(11) DEFAULT NULL,
+  `air_condition` datetime DEFAULT NULL,
+  PRIMARY KEY (`boardroom_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table if exists Meeting;
+-- ----------------------------
+-- Records of boardroom
+-- ----------------------------
 
-drop table if exists Name_card;
+-- ----------------------------
+-- Table structure for `department`
+-- ----------------------------
+DROP TABLE IF EXISTS `department`;
+CREATE TABLE `department` (
+  `department_id` int(11) NOT NULL,
+  `depatment_name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table if exists Reader;
+-- ----------------------------
+-- Records of department
+-- ----------------------------
+INSERT INTO `department` VALUES ('1', 'ddd');
 
-drop table if exists Relationship_5;
+-- ----------------------------
+-- Table structure for `file`
+-- ----------------------------
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE `file` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `Use_user_id` int(11) DEFAULT NULL,
+  `file_name` varchar(255) DEFAULT NULL,
+  `file_url` varchar(255) DEFAULT NULL,
+  `file_size` int(11) DEFAULT NULL,
+  `file_share` int(2) NOT NULL,
+  PRIMARY KEY (`file_id`),
+  KEY `FK_Relationship_18` (`Use_user_id`),
+  KEY `FK_Relationship_3` (`user_id`),
+  CONSTRAINT `FK_Relationship_18` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-drop table if exists Reserve;
+-- ----------------------------
+-- Records of file
+-- ----------------------------
+INSERT INTO `file` VALUES ('3', null, null, 'Administrator.contact', 'C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\EmployeeManagementSystem\\upload\\20200716104121633Administrator.contact', null, '1');
+INSERT INTO `file` VALUES ('4', null, null, 'Administrator.contact', 'C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\EmployeeManagementSystem\\upload\\20200716105026750Administrator.contact', null, '1');
+INSERT INTO `file` VALUES ('5', null, null, 'Administrator.contact', 'C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\EmployeeManagementSystem\\upload\\20200716114702589Administrator.contact', null, '0');
+INSERT INTO `file` VALUES ('6', null, null, '00.workstation.rar', 'C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\EmployeeManagementSystem\\upload\\2020071614013849400.workstation.rar', null, '0');
+INSERT INTO `file` VALUES ('7', null, null, 'apache-maven-3.5.0.rar', 'C:\\Users\\Administrator\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\EmployeeManagementSystem\\upload\\20200716142009032apache-maven-3.5.0.rar', null, '0');
 
-drop table if exists Scheduling_program;
+-- ----------------------------
+-- Table structure for `information`
+-- ----------------------------
+DROP TABLE IF EXISTS `information`;
+CREATE TABLE `information` (
+  `information_id` int(11) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `message` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`information_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table if exists State;
+-- ----------------------------
+-- Records of information
+-- ----------------------------
 
-drop table if exists User;
+-- ----------------------------
+-- Table structure for `meeting`
+-- ----------------------------
+DROP TABLE IF EXISTS `meeting`;
+CREATE TABLE `meeting` (
+  `meeting_id` int(11) NOT NULL,
+  `boardroom_id` int(11) DEFAULT NULL,
+  `meeting_name` varchar(20) DEFAULT NULL,
+  `meeting_date` date DEFAULT NULL,
+  `meeting_man` varchar(20) DEFAULT NULL,
+  `meeting_theme` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`meeting_id`),
+  KEY `FK_Relationship_9` (`boardroom_id`),
+  CONSTRAINT `FK_Relationship_9` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Agent                                                 */
-/*==============================================================*/
-create table Agent
-(
-   user_id2             int not null,
-   agent_id2            int not null,
-   user_id              int,
-   Use_user_id          int,
-   primary key (user_id2, agent_id2)
-);
+-- ----------------------------
+-- Records of meeting
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: Boardroom                                             */
-/*==============================================================*/
-create table Boardroom
-(
-   boardroom_id         int not null,
-   boardroom_name       varchar(20),
-   boardroom_url        varchar(255),
-   space                int,
-   air_condition        datetime,
-   primary key (boardroom_id)
-);
+-- ----------------------------
+-- Table structure for `m_u`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_u`;
+CREATE TABLE `m_u` (
+  `user_id` int(11) NOT NULL,
+  `meeting_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`meeting_id`),
+  KEY `FK_Relationship_8` (`meeting_id`),
+  CONSTRAINT `FK_Relationship_8` FOREIGN KEY (`meeting_id`) REFERENCES `meeting` (`meeting_id`),
+  CONSTRAINT `FK_Relationship_7` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Department                                            */
-/*==============================================================*/
-create table Department
-(
-   department_id        int not null,
-   depatment_name       varchar(20),
-   primary key (department_id)
-);
+-- ----------------------------
+-- Records of m_u
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: File                                                  */
-/*==============================================================*/
-create table File
-(
-   file_id              int not null,
-   user_id              int,
-   Use_user_id          int,
-   file_name            varchar(20),
-   file_url             varchar(255),
-   file_size            int,
-   primary key (file_id)
-);
+-- ----------------------------
+-- Table structure for `name_card`
+-- ----------------------------
+DROP TABLE IF EXISTS `name_card`;
+CREATE TABLE `name_card` (
+  `name_cardid` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `file_id` int(11) DEFAULT NULL,
+  `user_name` varchar(20) DEFAULT NULL,
+  `department_name` varchar(20) DEFAULT NULL,
+  `contact` varchar(20) DEFAULT NULL,
+  `post` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`name_cardid`),
+  KEY `FK_Relationship_19` (`file_id`),
+  KEY `FK_Relationship_20` (`user_id`),
+  CONSTRAINT `FK_Relationship_20` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_19` FOREIGN KEY (`file_id`) REFERENCES `file` (`file_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Information                                           */
-/*==============================================================*/
-create table Information
-(
-   information_id       int not null,
-   date                 datetime,
-   message              varchar(20),
-   primary key (information_id)
-);
+-- ----------------------------
+-- Records of name_card
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: M_U                                                   */
-/*==============================================================*/
-create table M_U
-(
-   user_id              int not null,
-   meeting_id           int not null,
-   primary key (user_id, meeting_id)
-);
+-- ----------------------------
+-- Table structure for `reader`
+-- ----------------------------
+DROP TABLE IF EXISTS `reader`;
+CREATE TABLE `reader` (
+  `user_id1` int(11) NOT NULL,
+  `read_id1` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `Use_user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id1`,`read_id1`),
+  KEY `FK_Relationship_10` (`user_id`),
+  KEY `FK_Relationship_11` (`Use_user_id`),
+  CONSTRAINT `FK_Relationship_11` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_10` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Meeting                                               */
-/*==============================================================*/
-create table Meeting
-(
-   meeting_id           int not null,
-   boardroom_id         int,
-   meeting_name         varchar(20),
-   meeting_date         date,
-   meeting_man          varchar(20),
-   meeting_theme        varchar(20),
-   primary key (meeting_id)
-);
+-- ----------------------------
+-- Records of reader
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: Name_card                                             */
-/*==============================================================*/
-create table Name_card
-(
-   name_cardid          int not null,
-   user_id              int,
-   file_id              int,
-   user_name            varchar(20),
-   department_name      varchar(20),
-   contact              varchar(20),
-   post                 varchar(20),
-   primary key (name_cardid)
-);
+-- ----------------------------
+-- Table structure for `relationship_5`
+-- ----------------------------
+DROP TABLE IF EXISTS `relationship_5`;
+CREATE TABLE `relationship_5` (
+  `information_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`information_id`,`user_id`),
+  KEY `FK_Relationship_6` (`user_id`),
+  CONSTRAINT `FK_Relationship_6` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_5` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Reader                                                */
-/*==============================================================*/
-create table Reader
-(
-   user_id1             int not null,
-   read_id1             int not null,
-   user_id              int,
-   Use_user_id          int,
-   primary key (user_id1, read_id1)
-);
+-- ----------------------------
+-- Records of relationship_5
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: Relationship_5                                        */
-/*==============================================================*/
-create table Relationship_5
-(
-   information_id       int not null,
-   user_id              int not null,
-   primary key (information_id, user_id)
-);
+-- ----------------------------
+-- Table structure for `reserve`
+-- ----------------------------
+DROP TABLE IF EXISTS `reserve`;
+CREATE TABLE `reserve` (
+  `reserve_id` int(11) NOT NULL,
+  `boardroom_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `reserve_state` varchar(20) DEFAULT NULL,
+  `boardroom_name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`reserve_id`),
+  KEY `FK_Relationship_16` (`user_id`),
+  KEY `FK_Relationship_17` (`boardroom_id`),
+  CONSTRAINT `FK_Relationship_17` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`),
+  CONSTRAINT `FK_Relationship_16` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: Reserve                                               */
-/*==============================================================*/
-create table Reserve
-(
-   reserve_id           int not null,
-   boardroom_id         int,
-   user_id              int,
-   reserve_state        varchar(20),
-   boardroom_name       varchar(20),
-   primary key (reserve_id)
-);
+-- ----------------------------
+-- Records of reserve
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: Scheduling_program                                    */
-/*==============================================================*/
-create table Scheduling_program
-(
-   sp_id                int not null,
-   user_id              int,
-   date                 datetime,
-   object               varchar(255),
-   primary key (sp_id)
-);
+-- ----------------------------
+-- Table structure for `scheduling_program`
+-- ----------------------------
+DROP TABLE IF EXISTS `scheduling_program`;
+CREATE TABLE `scheduling_program` (
+  `sp_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `object` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sp_id`),
+  KEY `FK_Relationship_4` (`user_id`),
+  CONSTRAINT `FK_Relationship_4` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*==============================================================*/
-/* Table: State                                                 */
-/*==============================================================*/
-create table State
-(
-   State_id             int not null,
-   information_id       int,
-   user_id              int,
-   sddresser_t          varchar(20),
-   sddresser_a          varchar(20),
-   consignee_t          varchar(20),
-   consignee_a          varchar(20),
-   primary key (State_id)
-);
+-- ----------------------------
+-- Records of scheduling_program
+-- ----------------------------
 
-/*==============================================================*/
-/* Table: User                                                  */
-/*==============================================================*/
-create table User
-(
-   user_id              int not null,
-   boardroom_id         int,
-   department_id        int,
-   user_name            varchar(20),
-   user_sex             varchar(20),
-   user_age             varchar(10),
-   department_name      varchar(20),
-   post                 varchar(20),
-   self                 varchar(20),
-   hobbies              varchar(20),
-   telephone            int,
-   email                varchar(20),
-   MSN                  int,
-   system_role          int,
-   password             varchar(20),
-   primary key (user_id)
-);
+-- ----------------------------
+-- Table structure for `state`
+-- ----------------------------
+DROP TABLE IF EXISTS `state`;
+CREATE TABLE `state` (
+  `State_id` int(11) NOT NULL,
+  `information_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `sddresser_t` varchar(20) DEFAULT NULL,
+  `sddresser_a` varchar(20) DEFAULT NULL,
+  `consignee_t` varchar(20) DEFAULT NULL,
+  `consignee_a` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`State_id`),
+  KEY `FK_Relationship_14` (`user_id`),
+  KEY `FK_Relationship_15` (`information_id`),
+  CONSTRAINT `FK_Relationship_15` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`),
+  CONSTRAINT `FK_Relationship_14` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-alter table Agent add constraint FK_Relationship_12 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
+-- ----------------------------
+-- Records of state
+-- ----------------------------
 
-alter table Agent add constraint FK_Relationship_13 foreign key (Use_user_id)
-      references User (user_id) on delete restrict on update restrict;
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `boardroom_id` int(11) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `user_name` varchar(20) DEFAULT NULL,
+  `user_sex` varchar(20) DEFAULT NULL,
+  `user_age` varchar(10) DEFAULT NULL,
+  `department_name` varchar(20) DEFAULT NULL,
+  `post` varchar(20) DEFAULT NULL,
+  `self` varchar(20) DEFAULT NULL,
+  `hobbies` varchar(20) DEFAULT NULL,
+  `telephone` int(11) DEFAULT NULL,
+  `email` varchar(20) DEFAULT NULL,
+  `MSN` int(11) DEFAULT NULL,
+  `system_role` int(11) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `FK_Relationship_1` (`department_id`),
+  KEY `FK_Relationship_2` (`boardroom_id`),
+  CONSTRAINT `FK_Relationship_2` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`),
+  CONSTRAINT `FK_Relationship_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-alter table File add constraint FK_Relationship_18 foreign key (Use_user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table File add constraint FK_Relationship_3 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table M_U add constraint FK_Relationship_7 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table M_U add constraint FK_Relationship_8 foreign key (meeting_id)
-      references Meeting (meeting_id) on delete restrict on update restrict;
-
-alter table Meeting add constraint FK_Relationship_9 foreign key (boardroom_id)
-      references Boardroom (boardroom_id) on delete restrict on update restrict;
-
-alter table Name_card add constraint FK_Relationship_19 foreign key (file_id)
-      references File (file_id) on delete restrict on update restrict;
-
-alter table Name_card add constraint FK_Relationship_20 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table Reader add constraint FK_Relationship_10 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table Reader add constraint FK_Relationship_11 foreign key (Use_user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table Relationship_5 add constraint FK_Relationship_5 foreign key (information_id)
-      references Information (information_id) on delete restrict on update restrict;
-
-alter table Relationship_5 add constraint FK_Relationship_6 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table Reserve add constraint FK_Relationship_16 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table Reserve add constraint FK_Relationship_17 foreign key (boardroom_id)
-      references Boardroom (boardroom_id) on delete restrict on update restrict;
-
-alter table Scheduling_program add constraint FK_Relationship_4 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table State add constraint FK_Relationship_14 foreign key (user_id)
-      references User (user_id) on delete restrict on update restrict;
-
-alter table State add constraint FK_Relationship_15 foreign key (information_id)
-      references Information (information_id) on delete restrict on update restrict;
-
-alter table User add constraint FK_Relationship_1 foreign key (department_id)
-      references Department (department_id) on delete restrict on update restrict;
-
-alter table User add constraint FK_Relationship_2 foreign key (boardroom_id)
-      references Boardroom (boardroom_id) on delete restrict on update restrict;
-
+-- ----------------------------
+-- Records of user
+-- ----------------------------
