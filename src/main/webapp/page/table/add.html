@@ -15,8 +15,9 @@
     </style>
 </head>
 <body>
-<div class="layui-form layuimini-form">
    <form action="../../adduser.do" method="post">
+<div class="layui-form layuimini-form">
+
     <div class="layui-form-item">
         <label class="layui-form-label required">员工号</label>
         <div class="layui-input-block">
@@ -33,7 +34,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">姓名</label>
         <div class="layui-input-block">
-            <input type="number" name="name" lay-verify="required" lay-reqtext="" placeholder="" value="" class="layui-input">
+            <input type="text" name="name" lay-verify="required" lay-reqtext="" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -91,9 +92,10 @@
         <div class="layui-input-block">
             <input type="submit" class="layui-btn layui-btn-normal" value="确认保存" lay-submit lay-filter="saveBtn"></input>
         </div>
-        </form>
+
     </div>
 </div>
+        </form>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {

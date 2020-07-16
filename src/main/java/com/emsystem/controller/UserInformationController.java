@@ -47,6 +47,7 @@ import com.emsystem.service.UserInformationService;
 	
 	// 员工新增
 	@RequestMapping(value = "/adduser")
+    @ResponseBody
     public String save(MultipartFile file, UserInformation user, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 		if (userI.save(user)) {
