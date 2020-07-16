@@ -57,7 +57,7 @@ import com.emsystem.utils.FileUtil;
 	        return json;
 	    }
 		
-		@RequestMapping(value = "/deleteFile",produces ={"application/json;charset=UTF-8"})
+		@RequestMapping(value = "/deleteFileById",produces ={"application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson deleteFile(File fileInfo) throws SQLException{
 			ObjectRlationJson json = new ObjectRlationJson();
