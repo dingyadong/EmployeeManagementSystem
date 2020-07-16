@@ -1,30 +1,29 @@
 package com.emsystem.pojo;
 
 public class CardHolder {
-	int name_cardid;
-	int user_id;
-	int file_id;
+	Integer name_cardid;
+	Integer user_id;
+	Integer file_id;
 	String user_name;
 	String department_name;
 	String contact;
 	String post;
-	
-	public int getName_cardid() {
+	public Integer getName_cardid() {
 		return name_cardid;
 	}
-	public void setName_cardid(int name_cardid) {
+	public void setName_cardid(Integer name_cardid) {
 		this.name_cardid = name_cardid;
 	}
-	public int getUser_id() {
+	public Integer getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
-	public int getFile_id() {
+	public Integer getFile_id() {
 		return file_id;
 	}
-	public void setFile_id(int file_id) {
+	public void setFile_id(Integer file_id) {
 		this.file_id = file_id;
 	}
 	public String getUser_name() {
@@ -51,6 +50,8 @@ public class CardHolder {
 	public void setPost(String post) {
 		this.post = post;
 	}
+	
+
 	
 	
 	

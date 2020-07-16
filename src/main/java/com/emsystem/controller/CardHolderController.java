@@ -53,6 +53,20 @@ public class CardHolderController {
 	        return json;
 	    }
 		
+		@RequestMapping(value = "/upDateCartById",produces ={ "application/json;charset=UTF-8"})
+	    @ResponseBody
+	    public ObjectRlationJson upDateCartById(CardHolder card) throws SQLException{
+			ObjectRlationJson json = new ObjectRlationJson();
+			System.out.println(card.getUser_id()+card.getUser_name()+card.getContact()+card.getPost());
+			int insertNum = dao.upDateCard(card);
+			if(insertNum!=0){
+				json.setMsg("更新成功！");
+			}else {
+				json.setMsg("更新失败！");
+			}
+	        return json;
+	    }
+		
 		@RequestMapping(value = "/cardKeyWord",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson cardKeyWord1(String keyword1,String keyword2){

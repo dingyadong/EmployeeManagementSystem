@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.emsystem.pojo.CardHolder;
 import com.emsystem.pojo.CardHolderClass;
@@ -37,6 +38,9 @@ public interface CardHolderDao {
 	@Select("select * from name_card where department_name like CONCAT('%',#{key},'%')")
 	@ResultType(CardHolder.class)
 	List<CardHolder> queryName_cardByKeyWord2(String key);
+	
+	@Update("update name_card set user_name = #{user_name},department_name = #{department_name},contact=#{contact},post=#{post} where name_cardid = #{name_cardid}")
+	public int upDateCard(CardHolder card) throws SQLException;
 	
 	@Insert("insert into name_card(user_name,department_name,contact,post) values(#{user_name},#{department_name},#{contact},#{post})")
 	public int addCard(CardHolder card) throws SQLException;

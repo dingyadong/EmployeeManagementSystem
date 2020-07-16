@@ -73,15 +73,15 @@
                     alert(data.msg);
                     
                 }
-                parent.location.reload();//刷新父页面
-                // 关闭弹出层
+             
          
            
             });
-   
+            
+            // 关闭弹出层
             var iframeIndex = parent.layer.getFrameIndex(window.name);
             parent.layer.close(iframeIndex);
-            
+            parent.location.reload();//刷新父页面
             return false;
         });
 
