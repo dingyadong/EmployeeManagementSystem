@@ -20,13 +20,13 @@
    <div class="layui-form-item">
         <label class="layui-form-label required">部门编号</label>
         <div class="layui-input-block">
-            <input type="number" name="deptid" lay-verify="required" lay-reqtext="部门编号不能为空" placeholder="请输入部门编号" value="" class="layui-input">
+            <input type="number" name="department_id" lay-verify="required" lay-reqtext="部门编号不能为空" placeholder="请输入部门编号" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">部门名称</label>
         <div class="layui-input-block">
-            <input type="number" name="deptname" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
+            <input type="text" name="depatment_name" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -46,9 +46,23 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var index = layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            }, function () {
+            //var index = layer.alert(JSON.stringify(data.field), {
+            //    title: '最终的提交信息'
+            $.ajax({   
+                url:'../../adddepartment.do',       
+                method:'post',       
+                data:data.field,        
+                dataType:'JSON',         
+                success:function(res){
+		      
+				if(res.code='0'){
+					layer.alert(res.msg);
+					}else            
+						layer.alert(res.msg);   
+				}, error:function (data) {}
+
+                            
+                }, function () {
 
                 // 关闭弹出层
                 layer.close(index);

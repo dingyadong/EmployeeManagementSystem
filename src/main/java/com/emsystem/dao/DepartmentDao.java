@@ -16,16 +16,16 @@ public interface DepartmentDao {
 	@Select("select * from department")
 	@ResultType(Department.class)
 	List<Department> queryAll();
-	//通过id查询类型
+	//通过id查询单条
 	@Select("select * from department where department_id=#{department_id}")
 	public Department querySingle(int department_id);
 	//新增
-	@Insert("insert into department(depament_name) values(#{depament_name})")
+	@Insert("insert into department(department_id,depatment_name) values(#{department_id},#{depatment_name})")
 	int save(Department d);
 	//编辑
 	@Update("update department set depament_name=#{depament_name} where department_id=#{department_id}")
 	int update(Department d);
-	//根据id删除商品类型
+	//根据id删除
 	@Delete("delete from department where department_id=#{department_id}")
 	public int delete(@Param("department_id")int did);
 }

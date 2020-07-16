@@ -5,38 +5,39 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.emsystem.dao.DepartmentDao;
-import com.emsystem.pojo.Department;
-import com.emsystem.service.DepartmentService;
+import com.emsystem.dao.UserDao;
+import com.emsystem.pojo.User;
+import com.emsystem.service.UserService;
 @Service
-public class DepartmentServiceImpl implements DepartmentService {
+public class UserServiceImpl implements UserService {
 	@Autowired
-	private DepartmentDao dao;
+	private UserDao dao;
 	@Override
-	public List<Department> queryAll() {
+	public List<User> queryAll() {
+		// TODO Auto-generated method stub
 		return dao.queryAll();
 	}
 
 	@Override
-	public Department querySingle(int id) {
+	public User querySingle(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean save(Department d) {
-		// TODO Auto-generated method stub
-		return dao.save(d)>0;
-	}
-
-	@Override
-	public boolean update(Department d) {
+	public boolean save(User u) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public int delete(int did) {
+	public boolean update(User u) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int delete(int uid) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

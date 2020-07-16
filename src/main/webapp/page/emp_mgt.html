@@ -64,7 +64,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../api/table_emp.json',
+            url: '../userlistjson.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -73,12 +73,15 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'id', width: 80, title: 'ID', sort: true},
-                {field: 'empid', width: 150, title: '员工编号'},
-                {field: 'emppost', width: 150, title: '职位'},
-                {field: 'empname', width: 150, title: '员工名', sort: true},
-                {field: 'sex', width: 80, title: '性别', sort: true},
-                {field: 'deptname', width: 150, title: '所属部门', sort: true},               
+                {field: 'user_id', width: 80, title: 'ID', sort: true},
+                {field: 'user_name', width: 150, title: '用户姓名'},
+                {field: 'boardroom_id', width: 150, title: '会议室id'},
+                {field: 'department_id', width: 150, title: '部门id', sort: true},
+                {field: 'user_sex', width: 80, title: '性别', sort: true},
+                {field: 'user_age', width: 150, title: '年龄', sort: true},
+                {field: 'telephone', width: 150, title: '电话', sort: true},
+                {field: 'email', width: 150, title: 'email', sort: true},
+                {field: 'system_role', width: 150, title: '系统角色', sort: true},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : aaaa
+Source Server         : localhost_3306
 Source Server Version : 50539
 Source Host           : localhost:3306
 Source Database       : zaqz
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50539
 File Encoding         : 65001
 
-Date: 2020-07-16 14:49:55
+Date: 2020-07-17 00:40:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,8 +27,8 @@ CREATE TABLE `agent` (
   PRIMARY KEY (`user_id2`,`agent_id2`),
   KEY `FK_Relationship_12` (`user_id`),
   KEY `FK_Relationship_13` (`Use_user_id`),
-  CONSTRAINT `FK_Relationship_13` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `FK_Relationship_12` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `FK_Relationship_12` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_13` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -51,6 +51,7 @@ CREATE TABLE `boardroom` (
 -- ----------------------------
 -- Records of boardroom
 -- ----------------------------
+INSERT INTO `boardroom` VALUES ('100', '会议室100', null, null, null);
 
 -- ----------------------------
 -- Table structure for `department`
@@ -65,7 +66,7 @@ CREATE TABLE `department` (
 -- ----------------------------
 -- Records of department
 -- ----------------------------
-INSERT INTO `department` VALUES ('1', 'ddd');
+INSERT INTO `department` VALUES ('10', '董事会');
 
 -- ----------------------------
 -- Table structure for `file`
@@ -139,8 +140,8 @@ CREATE TABLE `m_u` (
   `meeting_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`,`meeting_id`),
   KEY `FK_Relationship_8` (`meeting_id`),
-  CONSTRAINT `FK_Relationship_8` FOREIGN KEY (`meeting_id`) REFERENCES `meeting` (`meeting_id`),
-  CONSTRAINT `FK_Relationship_7` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `FK_Relationship_7` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_8` FOREIGN KEY (`meeting_id`) REFERENCES `meeting` (`meeting_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -162,8 +163,8 @@ CREATE TABLE `name_card` (
   PRIMARY KEY (`name_cardid`),
   KEY `FK_Relationship_19` (`file_id`),
   KEY `FK_Relationship_20` (`user_id`),
-  CONSTRAINT `FK_Relationship_20` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `FK_Relationship_19` FOREIGN KEY (`file_id`) REFERENCES `file` (`file_id`)
+  CONSTRAINT `FK_Relationship_19` FOREIGN KEY (`file_id`) REFERENCES `file` (`file_id`),
+  CONSTRAINT `FK_Relationship_20` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -182,8 +183,8 @@ CREATE TABLE `reader` (
   PRIMARY KEY (`user_id1`,`read_id1`),
   KEY `FK_Relationship_10` (`user_id`),
   KEY `FK_Relationship_11` (`Use_user_id`),
-  CONSTRAINT `FK_Relationship_11` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `FK_Relationship_10` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `FK_Relationship_10` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_11` FOREIGN KEY (`Use_user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -199,8 +200,8 @@ CREATE TABLE `relationship_5` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`information_id`,`user_id`),
   KEY `FK_Relationship_6` (`user_id`),
-  CONSTRAINT `FK_Relationship_6` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  CONSTRAINT `FK_Relationship_5` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`)
+  CONSTRAINT `FK_Relationship_5` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`),
+  CONSTRAINT `FK_Relationship_6` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -220,8 +221,8 @@ CREATE TABLE `reserve` (
   PRIMARY KEY (`reserve_id`),
   KEY `FK_Relationship_16` (`user_id`),
   KEY `FK_Relationship_17` (`boardroom_id`),
-  CONSTRAINT `FK_Relationship_17` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`),
-  CONSTRAINT `FK_Relationship_16` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `FK_Relationship_16` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_17` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -261,8 +262,8 @@ CREATE TABLE `state` (
   PRIMARY KEY (`State_id`),
   KEY `FK_Relationship_14` (`user_id`),
   KEY `FK_Relationship_15` (`information_id`),
-  CONSTRAINT `FK_Relationship_15` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`),
-  CONSTRAINT `FK_Relationship_14` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `FK_Relationship_14` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_Relationship_15` FOREIGN KEY (`information_id`) REFERENCES `information` (`information_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -280,7 +281,6 @@ CREATE TABLE `user` (
   `user_name` varchar(20) DEFAULT NULL,
   `user_sex` varchar(20) DEFAULT NULL,
   `user_age` varchar(10) DEFAULT NULL,
-  `department_name` varchar(20) DEFAULT NULL,
   `post` varchar(20) DEFAULT NULL,
   `self` varchar(20) DEFAULT NULL,
   `hobbies` varchar(20) DEFAULT NULL,
@@ -292,10 +292,11 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   KEY `FK_Relationship_1` (`department_id`),
   KEY `FK_Relationship_2` (`boardroom_id`),
-  CONSTRAINT `FK_Relationship_2` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`),
-  CONSTRAINT `FK_Relationship_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`)
+  CONSTRAINT `FK_Relationship_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`),
+  CONSTRAINT `FK_Relationship_2` FOREIGN KEY (`boardroom_id`) REFERENCES `boardroom` (`boardroom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', '100', '10', '张三', '男', '1', null, null, null, null, null, null, '1', '123');
