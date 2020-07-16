@@ -14,9 +14,9 @@ import com.emsystem.pojo.File;
 import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.service.FileService;
 /*
- * ÊµÏÖ¹¦ÄÜ£º¹²ÏíÎÄ¼ş¼ĞµÄ¿ØÖÆÆ÷
- * ·Ö¹¤£º¶¡ÑÇ¶«
- * ÈÕÆÚ£º2020/7/15
+ * Êµï¿½Ö¹ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ĞµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½
+ * ï¿½ï¿½ï¿½Ú£ï¿½2020/7/15
  * 
  */
 @Controller
@@ -30,11 +30,11 @@ public class ShareFolderController {
     @ResponseBody
     public ObjectRlationJson shareFileList(){
 		ObjectRlationJson json = new ObjectRlationJson();
-		
 		List<File> List = fileService.ShareFileList();
 		json.setData(List);
         return json;
     }
+	
 	
 	@RequestMapping(value = "/shareFileById",produces ={"application/json;charset=UTF-8"})
     @ResponseBody
@@ -42,12 +42,13 @@ public class ShareFolderController {
 		ObjectRlationJson json = new ObjectRlationJson();
 		int upNum = fileDao.updateFileById(fileInfo.getFile_id());
 		if(upNum!=0){
-			json.setMsg("¹²Ïí³É¹¦£¡");
+			json.setMsg("å…±äº«æˆåŠŸï¼");
 		}else {
-			json.setMsg("¹²ÏíÊ§°Ü£¡");
+			json.setMsg("å…±äº«å¤±è´¥ï¼");
 		}
-	
         return json;
     }
+	
+
 	
 }

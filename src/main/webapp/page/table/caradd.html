@@ -38,7 +38,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">邮箱</label>
         <div class="layui-input-block">
-            <input type="email" name="post" placeholder="请输入职业" value="" class="layui-input">
+            <input type="email" name="post" placeholder="请输入邮箱" value="" class="layui-input">
         </div>
     </div> 
 
@@ -65,12 +65,15 @@
             $.ajax({
                 url:"../../insertCart.do",
                 type:"GET",
+                async : false, //同步请求
                 //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
                 data:"user_name="+user_name+"&department_name="+department_name+"&contact="+contact+"&post="+post,
                 dataType:"json",
                 success:function (data) {
                     alert(data.msg);
+                    
                 }
+           
             });
    
 
