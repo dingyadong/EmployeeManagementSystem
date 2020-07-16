@@ -1,5 +1,6 @@
 package com.emsystem.serviceimpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class FileServiceImpl implements FileService{
 FileDao dao;
 
 	@Override
-	public List<File> FileList() {
+	public List<File> FileList() throws SQLException  {
 		// TODO Auto-generated method stub
 		return dao.fileList();
 	}

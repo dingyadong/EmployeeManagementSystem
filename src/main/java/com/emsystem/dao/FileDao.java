@@ -14,7 +14,7 @@ public interface FileDao {
 	
 	@Select("select * from file")
 	@ResultType(File.class)
-	public List<File> fileList();
+	public List<File> fileList() throws SQLException;
 	
 	@Select("select * from file where file_share=1")
 	@ResultType(File.class)

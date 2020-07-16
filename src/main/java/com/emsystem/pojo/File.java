@@ -9,6 +9,8 @@ public class File {
 	private int file_share;
 	
 	
+
+
 	public int getFile_share() {
 		return file_share;
 	}
