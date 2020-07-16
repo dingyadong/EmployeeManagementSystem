@@ -4,6 +4,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/emsystem/controller/DepartmentController.java=UTF-8
 encoding//src/main/java/com/emsystem/controller/FileController.java=UTF-8
+encoding//src/main/java/com/emsystem/controller/UserAddresslistController.java=UTF-8
 encoding//src/main/java/com/emsystem/controller/UserInformationController.java=UTF-8
 encoding//src/main/java/com/emsystem/controller/UserLoginController.java=UTF-8
 encoding//src/main/java/com/emsystem/dao/DepartmentDao.java=UTF-8

@@ -36,7 +36,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../api/tel.json',
+            url: '../ualjson.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -45,8 +45,9 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'name', width: 135, title: '员工姓名'},
-                {field: 'tel', width: 135, title: '电话'},
+                {field: 'user_name', width: 135, title: '员工姓名'},
+                {field: 'telephone', width: 135, title: '电话'},
+                {field: 'department_name', width: 135, title: '部门'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
