@@ -10,7 +10,7 @@ import com.emsystem.pojo.UserAddresslist;
 
 public interface UserAddressService {
 	
-	// ��ѯ�û�
+	// 查询所有
 	List<UserAddresslist> queryAll();
 	//通过id查询类型
 	public UserAddresslist querySingle(int id);

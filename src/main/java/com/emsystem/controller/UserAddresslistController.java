@@ -55,10 +55,7 @@ public class UserAddresslistController {
 			json.setMsg("删除失败");
 		}
         return json;
-	}
-	
-	
-	
+	}	
 }
 
 

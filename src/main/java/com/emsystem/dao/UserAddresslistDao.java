@@ -16,9 +16,6 @@ public interface UserAddresslistDao {
 		@Select("select * from user")
 		@ResultType(UserAddresslist.class)
 		List<UserAddresslist> queryAll();
-		//通过id查询类型
-//		@Select("select * from department where department_id=#{department_id}")
-//		public Department querySingle(int department_id);
 		//新增
 		@Insert("insert into user(user_name) values(#{user_name})")
 		public boolean save(UserAddresslist a);

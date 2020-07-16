@@ -14,7 +14,7 @@ public class UserAddressServiceImpl implements UserAddressService {
 	@Autowired
 	private UserAddresslistDao dao;
 	
-	//²éÑ¯
+	//æŸ¥è¯¢
 	@Override
 	public List<UserAddresslist> queryAll() {
 		return dao.queryAll();
