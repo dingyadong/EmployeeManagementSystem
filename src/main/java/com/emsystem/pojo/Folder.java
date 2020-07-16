@@ -15,9 +15,6 @@ public Integer getFolderId() {
 		return folderId;
 	}
 
-
-
-
 	public void setFolderId(Integer folderId) {
 		this.folderId = folderId;
 	}

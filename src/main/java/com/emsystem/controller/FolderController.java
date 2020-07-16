@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Controller
 	public class FolderController {
-		
+		@Autowired FolderDao folderDao;
 		
 		@RequestMapping("/upload")
 		public String upload(){
@@ -54,7 +55,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 				Folder folderInfo = new Folder();
 				folderInfo.setFolderName(mulFile.getOriginalFilename());
 				folderInfo.setFolderUrl(fileUrl);
-				FolderDao.addFolderInfo(folderInfo);
+				folderDao.addFolderInfo(folderInfo);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
