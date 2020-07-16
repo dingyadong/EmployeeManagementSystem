@@ -51,7 +51,41 @@ public class CardHolderController {
 			}
 	        return json;
 	    }
-	
+		
+		@RequestMapping(value = "/cardKeyWord",produces ={ "application/json;charset=UTF-8"})
+	    @ResponseBody
+	    public ObjectRlationJson cardKeyWord1(String keyword1,String keyword2){
+			ObjectRlationJson json = new ObjectRlationJson();
+			List<CardHolder> List;
+			if(keyword1 !=null & keyword2 != null){
+				List = dao.queryName_cardByKeyWord(keyword1,keyword2);
+			}else if (keyword1 !=null) {
+				 List = dao.queryName_cardByKeyWord1(keyword1);
+			}else {
+				 List = dao.queryName_cardByKeyWord2(keyword2);
+			}
+			
+			json.setData(List);
+	        return json;
+	    }
+		
+		
+
+		
+				@RequestMapping(value = "/insertCartClass",produces ={ "application/json;charset=UTF-8"})
+			    @ResponseBody
+			    public ObjectRlationJson insertCartClass(CardHolderClass card) throws SQLException{
+					ObjectRlationJson json = new ObjectRlationJson();
+					
+					int insertNum = dao.addCardClass(card);
+					if(insertNum!=0){
+						json.setMsg("添加成功！");
+					}else {
+						json.setMsg("添加失败！");
+					}
+			        return json;
+			    }
+				
 	//��ʾ����
 	@RequestMapping(value = "/cardHolderClassify",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
@@ -62,4 +96,7 @@ public class CardHolderController {
 		json.setData(userList);
         return json;
     }
+	
+	
+	
 }

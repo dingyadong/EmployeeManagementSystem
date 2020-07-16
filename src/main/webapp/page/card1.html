@@ -18,7 +18,7 @@
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
         <script type="text/html" id="toolbarDemo">
             <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="comfile"> 添加文件夹分类 </button>
             </div>
         </script>
 <script>
@@ -73,7 +73,7 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'comfile') {  // 监听添加操作
                 var index = layer.open({
-                    title: '添加联系电话',
+                    title: '添加文件夹分类',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,

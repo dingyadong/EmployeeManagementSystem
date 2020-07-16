@@ -13,7 +13,7 @@ public class CardHolderServiceImpl implements CardHolderService{
 	@Override
 	public List<CardHolder> cardHolderList() {
 		// TODO Auto-generated method stub
-		return dao.queryAll();
+		return dao.queryAllName_card();
 	}
 
 }
