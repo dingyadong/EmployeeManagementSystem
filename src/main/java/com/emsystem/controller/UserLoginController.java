@@ -45,7 +45,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			}
 		}
 		model.addAttribute("loginMsg", "用户名或密码错误");
-		return "page/login-1";
+		return "index";
 	}	
-
 }

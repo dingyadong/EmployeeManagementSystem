@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.pojo.UserInformation;
 import com.emsystem.service.UserInformationService;
 
@@ -27,11 +29,20 @@ import com.emsystem.service.UserInformationService;
 		}
 	
 	// 查看商品列表
-	@RequestMapping("getallusers")
-	public String goodslist(Model model) {
-		model.addAttribute("goodsList", userI.queryAll());
-		return "admin/showGoods";
+	@RequestMapping(value = "/getallusers",produces ={ "application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson showjson() {
+		ObjectRlationJson json = new ObjectRlationJson();
+		json.setData(userI.queryAll());
+		return json;
 	}
+//	@RequestMapping(value = "/deptmentjson",produces ={ "application/json;charset=UTF-8"})
+//	@ResponseBody
+//	public ObjectRlationJson showjson() {
+//		ObjectRlationJson json = new ObjectRlationJson();
+//		json.setData(service.queryAll());
+//		return json;
+//	}
 	
 	// 员工新增
 	@RequestMapping("adduser")

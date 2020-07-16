@@ -61,10 +61,9 @@
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table;
-
         table.render({
             elem: '#currentTableId',
-            url: '../getallusersjson.do',
+            url: '../getallusers.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -73,17 +72,16 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'id', width: 135, title: '员工号', sort: true},
+                {field: 'user_id', width: 135, title: '员工号', sort: true},
                 {field: 'password', width: 80, title: '密码'},
-                {field: 'name', width: 80, title: '姓名', sort: true},
-                {field: 'sex', width: 80, title: '性别'},
-                {field: 'age',  width: 80, title: '年龄'},
-                {field: 'deptname', width: 135, title: '部门名', sort: true},
-                {field: 'site', width: 80, title: '职位', sort: true},
-                {field: 'classify', width: 135, title: '自我介绍'},
-                {field: 'hobby', width: 135, title: '兴趣爱好'},
-                {field: 'phone', width: 135, title: '联系方式'},
-                {field: 'jiaose', width: 135, title: '系统角色'},
+                {field: 'user_name', width: 80, title: '姓名', sort: true},
+                {field: 'user_sex', width: 80, title: '性别'},
+                {field: 'user_age',  width: 80, title: '年龄'},
+                {field: 'department_name', width: 135, title: '部门名', sort: true},
+                {field: 'post', width: 80, title: '职位', sort: true},
+                {field: 'self', width: 135, title: '自我介绍'},
+                {field: 'hobbies', width: 135, title: '兴趣爱好'},
+                {field: 'telephone', width: 135, title: '联系方式'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],

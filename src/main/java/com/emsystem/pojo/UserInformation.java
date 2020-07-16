@@ -78,6 +78,7 @@ public class UserInformation {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	
 	@Override
 	public String toString() {
 		return "UserInformation [user_id=" + user_id + ", user_name=" + user_name + ", password=" + password
