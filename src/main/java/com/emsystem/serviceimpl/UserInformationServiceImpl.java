@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emsystem.dao.UserInformationDao;
+import com.emsystem.pojo.Department;
 import com.emsystem.pojo.UserInformation;
 import com.emsystem.service.UserInformationService;
 @Service
@@ -22,11 +23,15 @@ public class UserInformationServiceImpl implements UserInformationService{
 		//模糊查询
 		return dao.queryName(name);
 	}
-	
+	//新增	
 	@Override
 	public boolean save(UserInformation users) {
 		// TODO Auto-generated method stub
 		return dao.save(users)>0;
 	}
-
+	//查询所有
+	@Override
+	public List<UserInformation> queryAll() {
+		return dao.queryAll();
+	}
 }

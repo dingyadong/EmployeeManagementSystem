@@ -25,6 +25,14 @@ import com.emsystem.service.UserInformationService;
 		model.addAttribute("UserList", userI.queryByName(name));
 		return "page/table";
 		}
+	
+	// 查看商品列表
+	@RequestMapping("getallusers")
+	public String goodslist(Model model) {
+		model.addAttribute("goodsList", userI.queryAll());
+		return "admin/showGoods";
+	}
+	
 	// 员工新增
 	@RequestMapping("adduser")
 	public String save(MultipartFile file, UserInformation user, HttpServletRequest request)
