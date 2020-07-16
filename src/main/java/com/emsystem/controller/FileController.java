@@ -107,7 +107,7 @@ import com.emsystem.utils.FileUtil;
 		
 		@RequestMapping("/download")
 		public ResponseEntity<byte[]> download(File fileInfo) {
-			try {
+			try {   
 			
 				File files = fileDao.fileById(fileInfo.getFile_id());
 				String fileUrl = files.getFile_url();
