@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.emsystem.dao.FolderDao;
-import com.emsystem.pojo.Folder;
+import com.emsystem.dao.FileDao;
+import com.emsystem.pojo.file;
+import com.emsystem.service.FileService;
 import com.emsystem.pojo.ObjectRlationJson;
+
 import com.emsystem.utils.FileUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,8 +32,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  */
 @Controller
-	public class FolderController {
-		@Autowired FolderDao folderDao;
+	public class FileController {
+		@Autowired 
+		FileDao fileDao;
+		FileService fileService;
+	
 		
 		@RequestMapping("/upload")
 		public String upload(){
@@ -39,9 +44,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			return "index";
 		}
 		
- 
+		@RequestMapping(value = "/folderList",produces ={"application/json;charset=UTF-8"})
+	    @ResponseBody
+	    public ObjectRlationJson folderList(){
+			System.out.println("OK");
+			ObjectRlationJson json = new ObjectRlationJson();
+			
+			List<file> userList = fileService.FileList();
+			json.setData(userList);
+	        return json;
+	    }
 		
-		@RequestMapping(value ="/doupload",produces ={ "application/json;charset=UTF-8"})
+		@RequestMapping(value ="/doupload",produces ={"application/json;charset=UTF-8"})
 		@ResponseBody
 		public ObjectRlationJson doUpload(@RequestParam(required=false) MultipartFile mulFile,HttpServletRequest request){
 			System.out.println("file name = " + mulFile.getName());
@@ -54,10 +68,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			
 			try {
 				FileUtil.copyFileToDisk(fileUrl, mulFile);
-				Folder folderInfo = new Folder();
-				folderInfo.setFolderName(mulFile.getOriginalFilename());
-				folderInfo.setFolderUrl(fileUrl);
-				folderDao.addFolderInfo(folderInfo);
+				file folderInfo = new file();
+				folderInfo.setFile_name(mulFile.getOriginalFilename());
+				folderInfo.setFile_url(fileUrl);
+				fileDao.addFolderInfo(folderInfo);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -74,19 +88,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		}
 		
 		
-		@RequestMapping(value = "/insertFile",produces ={ "application/json;charset=UTF-8"})
+		@RequestMapping(value = "/insertFile",produces ={"application/json;charset=UTF-8"})
 	    @ResponseBody
-	    public ObjectRlationJson insertFile(Folder folder){
+	    public ObjectRlationJson insertFile(file folder){
 			
 			ObjectRlationJson json = new ObjectRlationJson();
 			
-			List<Folder> userList = new ArrayList<Folder>();
-			userList.add(new Folder("妗妗1","2020/07/10 11:05:41","男"));
-			userList.add(new Folder("妗妗12","2020/07/10 11:05:41","男"));
-			userList.add(new Folder("妗妗13","2020/07/10 11:05:41","男"));
+			List<file> userList = new ArrayList<file>();
+
 			json.setData(userList);
 			System.out.println("OK");
-			System.out.println(folder.getFolderName()+folder.getContent());
+			System.out.println(folder.getFile_name()+folder.getContent());
 	        return json;
 	    }
 		
@@ -96,10 +108,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		@ResponseBody
 		public String a2(){
 			System.out.println("123");
-		List<Folder> userList = new ArrayList<Folder>();
-		userList.add(new Folder("妗妗1","1","男"));
-		userList.add(new Folder("妗妗12","1","男"));
-		userList.add(new Folder("妗妗13","1","男"));
+		List<file> userList = new ArrayList<file>();
+
 		System.out.println(userList);
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -116,18 +126,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		return srt;
 		}
 		
-		@RequestMapping(value = "/folderList",produces ={ "application/json;charset=UTF-8"})
-	    @ResponseBody
-	    public ObjectRlationJson testjson(){
-			ObjectRlationJson json = new ObjectRlationJson();
-			
-			List<Folder> userList = new ArrayList<Folder>();
-			userList.add(new Folder("妗妗1","2020/07/10 11:05:41","男"));
-			userList.add(new Folder("妗妗12","2020/07/10 11:05:41","男"));
-			userList.add(new Folder("妗妗13","2020/07/10 11:05:41","男"));
-			json.setData(userList);
-	        return json;
-	    }
 
 		
 

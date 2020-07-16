@@ -37,7 +37,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../folderList.do',
+            url: '../fileList.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -46,8 +46,8 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'folderName', width: 135, title: '文件夹名'},
-                {field: 'folderTime', width: 210, title: '新建时间'},
+                {field: 'fileName', width: 135, title: '文件夹名'},
+                {field: 'fileTime', width: 210, title: '新建时间'},
                 {field: 'conent', width: 210, title: '内容'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
