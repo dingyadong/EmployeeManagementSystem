@@ -64,7 +64,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../api/table_dept.json',
+            url: '../deptmentjson.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -73,9 +73,8 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'id', width: 100, title: 'ID', sort: true},
-                {field: 'deptid', width:300, title: '部门编号', sort: true},
-                {field: 'deptname',  title: '部门名', sort: true},             
+                {field: 'department_id', width:300, title: '部门编号', sort: true},
+                {field: 'depatment_name',  title: '部门名', sort: true},             
                 {title: '操作', minWidth: 80, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
