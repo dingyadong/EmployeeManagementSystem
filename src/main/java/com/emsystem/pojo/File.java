@@ -40,7 +40,7 @@ public class File {
 	}
 	public void setFile_time(String file_time) {
 		this.file_time = file_time;
-	}
+	}  
 	public String getContent() {
 		return content;
 	}

@@ -134,7 +134,7 @@ import com.emsystem.utils.FileUtil;
 
 		
 		
-/*		@RequestMapping(value = "/insertFile",produces ={"application/json;charset=UTF-8"})
+		@RequestMapping(value = "/insertFile",produces ={"application/json;charset=UTF-8"})
 	    @ResponseBody
 	    public ObjectRlationJson insertFile(File file){
 			
@@ -149,7 +149,7 @@ import com.emsystem.utils.FileUtil;
 	    }
 		
 			
-			
+			/*
 		@RequestMapping("/a2")
 		@ResponseBody
 		public String a2(){

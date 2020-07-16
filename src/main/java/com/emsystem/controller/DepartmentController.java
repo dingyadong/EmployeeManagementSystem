@@ -29,7 +29,6 @@ public class DepartmentController {
 	@ResponseBody
 	public ObjectRlationJson showjson() {
 		ObjectRlationJson json = new ObjectRlationJson();
-
 		json.setData(service.queryAll());
 		return json;
 	}
