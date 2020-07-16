@@ -1,18 +1,23 @@
 package com.emsystem.controller;
 
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.emsystem.dao.FolderDao;
 import com.emsystem.pojo.Folder;
 import com.emsystem.pojo.ObjectRlationJson;
+import com.emsystem.utils.FileUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,6 +39,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		}
 		
  
+		
+		@RequestMapping("/doupload")
+		public String doUpload(@RequestParam(required=false) MultipartFile mulFile,HttpServletRequest request){
+			System.out.println("file name = " + mulFile.getName());
+			System.out.println("file real name = " + mulFile.getOriginalFilename());
+			String fileUrl = "/upload/" + 
+					FileUtil.createRandomFileName() + mulFile.getOriginalFilename();
+			fileUrl = request.getServletContext().getRealPath(fileUrl);
+			System.out.println("file real url = " + fileUrl);
+			
+			try {
+				FileUtil.copyFileToDisk(fileUrl, mulFile);
+				Folder folderInfo = new Folder();
+				folderInfo.setFolderName(mulFile.getOriginalFilename());
+				folderInfo.setFolderUrl(fileUrl);
+				FolderDao.addFolderInfo(folderInfo);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "index";
+		}
+		
 		
 		@RequestMapping(value = "/insertFile",produces ={ "application/json;charset=UTF-8"})
 	    @ResponseBody
