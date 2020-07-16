@@ -1,10 +1,12 @@
 package com.emsystem.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
-import com.emsystem.pojo.file;
+
+import com.emsystem.pojo.File;
 
 public interface FileService {
-	public List<file> FileList();
-	public List<file> ShareFileList();
+	public List<File> FileList() throws SQLException;
+	public List<File> ShareFileList();
 }

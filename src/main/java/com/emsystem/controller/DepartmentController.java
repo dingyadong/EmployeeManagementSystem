@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.emsystem.pojo.Department;
-import com.emsystem.pojo.Folder;
 import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.service.DepartmentService;
 
@@ -30,7 +29,6 @@ public class DepartmentController {
 	@ResponseBody
 	public ObjectRlationJson showjson() {
 		ObjectRlationJson json = new ObjectRlationJson();
-
 		json.setData(service.queryAll());
 		return json;
 	}

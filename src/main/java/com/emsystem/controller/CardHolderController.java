@@ -28,10 +28,6 @@ public class CardHolderController {
 		ObjectRlationJson json = new ObjectRlationJson();
 		  
 		List<CardHolder> userList = new ArrayList<CardHolder>();
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
-		json.setData(userList);
         return json;
     }
 	
@@ -42,9 +38,6 @@ public class CardHolderController {
 		ObjectRlationJson json = new ObjectRlationJson();
 		  
 		List<CardHolder> userList = new ArrayList<CardHolder>();
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
-		userList.add(new CardHolder("张三","17324785","科创","经理"));
 		json.setData(userList);
         return json;
     }
