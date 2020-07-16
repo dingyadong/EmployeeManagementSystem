@@ -59,7 +59,7 @@
                    <span style="color:red;">${loginMsg}</span> 
                 </div>
                 <div class="layui-form-item">
-                    <input type="submit" class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login">登 入</input>
+                    <input type="submit" class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" lay-filter="login" value="登 入""></input>
                 </div>
             </form>
         </div>
@@ -84,23 +84,6 @@
             });
         });
 
-        // 进行登录操作
-        form.on('submit(login)', function (data) {
-            data = data.field;
-            if (data.username == '') {
-                layer.msg('用户名不能为空');
-                return false;
-            }
-            if (data.password == '') {
-                layer.msg('密码不能为空');
-                return false;
-            }
-            if (data.captcha == '') {
-                layer.msg('验证码不能为空');
-                return false;
-            });
-            return false;
-        });
     });
 </script>
 </body>

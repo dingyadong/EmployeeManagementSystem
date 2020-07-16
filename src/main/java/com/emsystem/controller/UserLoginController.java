@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.emsystem.pojo.file;
+import com.emsystem.pojo.File;
 import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.pojo.UserLogin;
 import com.emsystem.service.UserLoginService;
@@ -29,8 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	private UserLoginService userServicelogin;
 
 	// 登陆
-	@RequestMapping(value ="userlogin",produces ={"application/json;charset=UTF-8"})
-	
+	@RequestMapping("userlogin")
 	public String login(String username, String password, Model model, HttpSession session) {
 		if (!StrUtils.empty(username, password)) {
 			UserLogin userlogin = userServicelogin.getUserByName(username);
