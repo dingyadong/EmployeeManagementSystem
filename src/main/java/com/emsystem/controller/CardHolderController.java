@@ -38,7 +38,6 @@ public class CardHolderController {
 		ObjectRlationJson json = new ObjectRlationJson();
 		  
 		List<CardHolder> userList = new ArrayList<CardHolder>();
-
 		json.setData(userList);
         return json;
     }
