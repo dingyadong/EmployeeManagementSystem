@@ -70,10 +70,10 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'name', width: 135, title: '姓名'},
-                {field: 'tel', width: 135, title: '电话'},
-                {field: 'compliy', width: 135, title: '公司名称'},
-                {field: 'location', width: 135, title: '职位'},
+                {field: 'user_name', width: 135, title: '姓名'},
+                {field: 'department_name', width: 135, title: '部门名称'},
+                {field: 'contact', width: 135, title: '详细信息'},
+                {field: 'post', width: 135, title: '电子邮箱'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
@@ -108,7 +108,7 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'add') {  // 监听添加操作
                 var index = layer.open({
-                    title: '添加联系电话',
+                    title: '添加名片',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,

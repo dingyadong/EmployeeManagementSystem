@@ -28,7 +28,7 @@ import com.emsystem.utils.FileUtil;
 
 
 
-/*
+/**
  * 实现功能：个人文件的控制器
  * 分工：丁亚东
  * 日期：2020/7/15
@@ -70,9 +70,6 @@ import com.emsystem.utils.FileUtil;
 			}
 	        return json;
 	    }
-		
-		
-
 		
 		
 		

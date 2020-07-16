@@ -19,26 +19,26 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">姓名</label>
         <div class="layui-input-block">
-            <input type="text" name="username" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入姓名" value="" class="layui-input">
+            <input type="text" name="user_name" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入姓名" value="" class="layui-input">
         </div>
     </div>
     
     <div class="layui-form-item">
-        <label class="layui-form-label required">电话</label>
+        <label class="layui-form-label required">部门</label>
         <div class="layui-input-block">
-            <input type="number" name="phone" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+            <input type="text" name="department_name" lay-verify="required" lay-reqtext="部门不能为空" placeholder="请输入部门" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">公司名称</label>
+        <label class="layui-form-label">详细信息</label>
         <div class="layui-input-block">
-            <input type="email" name="email" placeholder="请输入公司名称" value="" class="layui-input">
+            <input type="text" name="contact" placeholder="请输入详细信息" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">职位</label>
+        <label class="layui-form-label">邮箱</label>
         <div class="layui-input-block">
-            <input type="text" name="work" placeholder="请输入职业" value="" class="layui-input">
+            <input type="email" name="post" placeholder="请输入职业" value="" class="layui-input">
         </div>
     </div> 
 
@@ -57,17 +57,22 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var index = layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            }, function () {
-
-                // 关闭弹出层
-                layer.close(index);
-
-                var iframeIndex = parent.layer.getFrameIndex(window.name);
-                parent.layer.close(iframeIndex);
-
+           	var user_name = $('input[name="user_name"]').val();
+           	var department_name = $('input[name="department_name"]').val();
+           	var contact = $('input[name="contact"]').val();
+           	var post = $('input[name="post"]').val();
+           	
+            $.ajax({
+                url:"../../insertCart.do",
+                type:"GET",
+                //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                data:"user_name="+user_name+"&department_name="+department_name+"&contact="+contact+"&post="+post,
+                dataType:"json",
+                success:function (data) {
+                    alert(data.msg);
+                }
             });
+   
 
             return false;
         });

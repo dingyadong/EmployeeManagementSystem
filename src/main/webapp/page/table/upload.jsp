@@ -35,12 +35,10 @@ session.setAttribute("basePath", basePath);
                  type:"GET",
                  //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
                  data:"folderName="+foldername+"&content="+content,
-                 /* data:hobby+"&name="+name+"&age="+age+"&sex="+sex+"&address="+address,    */ 
                  dataType:"json",
                  success:function (data) {
                      alert(data.msg);
                  }
-        	 
              });
             return false;
         }
