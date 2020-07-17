@@ -1,16 +1,12 @@
 package com.emsystem.pojo;
 
 public class UserAddresslist {
-  private int user_id;
+  private int addresslist_id;
   private String user_name;
   private String department_name;
   private String telephone;
-public int getUser_id() {
-	return user_id;
-}
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
-}
+
+
 public String getUser_name() {
 	return user_name;
 }
@@ -29,10 +25,17 @@ public String getTelephone() {
 public void setTelephone(String telephone) {
 	this.telephone = telephone;
 }
+public int getAddresslist_id() {
+	return addresslist_id;
+}
+public void setAddresslist_id(int addresslist_id) {
+	this.addresslist_id = addresslist_id;
+}
 @Override
 public String toString() {
-	return "UserAddresslist [user_id=" + user_id + ", user_name=" + user_name + ", department_name=" + department_name
-			+ ", telephone=" + telephone + "]";
+	return "UserAddresslist [addresslist_id=" + addresslist_id + ", user_name=" + user_name + ", department_name="
+			+ department_name + ", telephone=" + telephone + "]";
 }
+
   
 }

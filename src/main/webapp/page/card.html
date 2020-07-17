@@ -15,25 +15,24 @@
     <fieldset class="table-search-fieldset">
             <legend>搜索信息</legend>
             <div style="margin: 10px 10px 10px 10px">
-                <form class="layui-form layui-form-pane" >
+                <form class="layui-form layui-form-pane" action="">
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="keyword1" id="keyword1"  autocomplete="off" class="layui-input">
+                                <input type="text" name="username" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">部门</label>
+                            <label class="layui-form-label">职位</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="keyword2" id="keyword2" autocomplete="off" class="layui-input">
+                                <input type="text" name="sex" autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-inline">
                             <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
                         </div>
-                        
                     </div>
                 </form>
             </div>
@@ -71,11 +70,10 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'name_cardid', width: 135, title: 'id'},
                 {field: 'user_name', width: 135, title: '姓名'},
                 {field: 'department_name', width: 135, title: '部门名称'},
                 {field: 'contact', width: 135, title: '详细信息'},
-                {field: 'post', width: 300, title: '电子邮箱'},
+                {field: 'post', width: 135, title: '电子邮箱'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
@@ -86,25 +84,19 @@
 
         // 监听搜索操作
         form.on('submit(data-search-btn)', function (data) {
-        	
-        	
             var result = JSON.stringify(data.field);
-            var keyword1 = $('input[name="keyword1"]').val();
-            var keyword2 = $('input[name="keyword2"]').val();
             layer.alert(result, {
                 title: '最终的搜索信息'
             });
 
-            var keyword1 = $('#keyword1');
             //执行搜索重载
             table.reload('currentTableId', {
                 page: {
                     curr: 1
                 }
                 , where: {
-                	'keyword1': keyword1,
-                	'keyword2':keyword2
-                    }
+                    searchParams: result
+                }
             }, 'data');
 
             return false;
@@ -150,18 +142,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '../page/table/caredit.html',                       //user_name='+obj.data.user_name+'&department_name='+obj.data.department_name+'&contact='+obj.data.contact+'&post='+obj.data.post
-                    success:function(layero,index){
-                    	
-                    	var body=layer.getChildFrame('body',index);//少了这个是不能从父页面向子页面传值的
-                    	//获取子页面的元素，进行数据渲染
-                    	body.contents().find('#namecardid').val(data.name_cardid);
-                    	body.contents().find('#username').val(data.user_name);
-                    	body.contents().find('#departmentname').val(data.department_name);
-                    	body.contents().find('#contact').val(data.contact);
-                    	body.contents().find('#post').val(data.post);
-                    	}
-                    	
+                    content: '../page/table/caredit.html',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

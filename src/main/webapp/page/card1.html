@@ -12,15 +12,29 @@
 <body>
 <div class="layuimini-container">
     <div class="layuimini-main">
+    <fieldset class="table-search-fieldset">
+            <legend>文件夹分类</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">                          
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="comfile"> 公司文件夹 </button>                          
+                       </div>
+                        <div class="layui-inline">
+                            
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="myfile"> 我的文件夹 </button>
+                        </div>           
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+
     </div>
 </div>
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-        <script type="text/html" id="toolbarDemo">
-            <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="comfile"> 添加文件夹分类 </button>
-            </div>
-        </script>
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
@@ -38,8 +52,10 @@
             }],
             cols: [[
                 {type: "checkbox", width: 50},
-                {field: 'name_cardid', width: 135, title: '名片夹Id'},
-                {field: 'card_name', width: 135, title: '名片夹名'},
+                {field: 'name', width: 135, title: '姓名'},
+                {field: 'tel', width: 135, title: '电话'},
+                {field: 'compliy', width: 135, title: '公司名称'},
+                {field: 'location', width: 135, title: '职位'}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
@@ -73,7 +89,7 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'comfile') {  // 监听添加操作
                 var index = layer.open({
-                    title: '添加文件夹分类',
+                    title: '添加联系电话',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,

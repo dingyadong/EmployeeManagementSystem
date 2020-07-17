@@ -7,7 +7,7 @@ import com.emsystem.pojo.Department;
 public interface DepartmentService {
 	//查询全部
 	List<Department> queryAll();
-	//通过id查询单条
+	//通过id查询类型
 	public Department querySingle(int id);
 	//新增
 	boolean save(Department d);

@@ -29,19 +29,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	private UserLoginService userServicelogin;
 
 	// 登陆
-	@RequestMapping(value = "/userlogin")
-	public String login(String username, String password) {
+	@RequestMapping(value = "/userlogin",produces ={"application/json;charset=UTF-8"})
+	public String login(String username, String password, Model model, HttpSession session) {
 		if (!StrUtils.empty(username, password)) {
 			UserLogin userlogin = userServicelogin.getUserByName(username);
 			if (userlogin != null) {
 				// 校验密码
 				if (userlogin.getPassword().equals(password)) {
-
+					// 正确
+					// 记录登录信息到会话中
+					session.setAttribute("userlogin", userlogin);
+					// 页面跳转
 					return "index";
 				}
 			}
 		}
-		//model.addAttribute("loginMsg", "用户名或密码错误");
-		return "index";
+		model.addAttribute("loginMsg", "用户名或密码错误");
+		return "page/login-1";
 	}	
+
 }

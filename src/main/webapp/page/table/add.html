@@ -15,18 +15,16 @@
     </style>
 </head>
 <body>
-   <form action="../../adduser.do" method="post">
 <div class="layui-form layuimini-form">
-
     <div class="layui-form-item">
         <label class="layui-form-label required">员工号</label>
         <div class="layui-input-block">
-            <input type="text" name="user_id" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="" value="" class="layui-input">
+            <input type="text" name="id" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">性别</label>
-        <div class="layui-input-block" name="user_sex">
+        <div class="layui-input-block">
             <input type="radio" name="sex" value="男" title="男" checked="">
             <input type="radio" name="sex" value="女" title="女">
         </div>
@@ -34,7 +32,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">姓名</label>
         <div class="layui-input-block">
-            <input type="text" name="user_name" lay-verify="required" lay-reqtext="" placeholder="" value="" class="layui-input">
+            <input type="number" name="name" lay-verify="required" lay-reqtext="" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -46,56 +44,54 @@
     <div class="layui-form-item">
         <label class="layui-form-label">年龄</label>
         <div class="layui-input-block">
-            <input type="text" name="user_age" placeholder="" value="" class="layui-input">
+            <input type="text" name="age" placeholder="" value="" class="layui-input">
         </div>
     </div>
     
     <div class="layui-form-item">
         <label class="layui-form-label">部门名</label>
         <div class="layui-input-block">
-            <input type="text" name="department_name" placeholder="" value="" class="layui-input">
+            <input type="text" name="deptname" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">职位</label>
         <div class="layui-input-block">
-            <input type="text" name="post" placeholder="" value="" class="layui-input">
+            <input type="text" name="site" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">自我介绍</label>
         <div class="layui-input-block">
-            <input type="text" name="self" placeholder="" value="" class="layui-input">
+            <input type="text" name="classify" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">兴趣爱好</label>
         <div class="layui-input-block">
-            <input type="text" name="hobbies" placeholder="" value="" class="layui-input">
+            <input type="text" name="hobby" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">联系方式</label>
         <div class="layui-input-block">
-            <input type="text" name="telephone" placeholder="" value="" class="layui-input">
+            <input type="text" name="phone" placeholder="" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">系统角色</label>
         <div class="layui-input-block">
-            <input type="text" name="system_role" placeholder="" value="" class="layui-input">
+            <input type="text" name="rolee" placeholder="" value="" class="layui-input">
         </div>
     </div>
    
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <input type="submit" class="layui-btn layui-btn-normal" value="确认保存" lay-submit lay-filter="saveBtn"></input>
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
         </div>
-
     </div>
 </div>
-        </form>
 <script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form'], function () {
@@ -108,9 +104,10 @@
             var index = layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             }, function () {
-               // url: '../deptmentjson.do',
+
                 // 关闭弹出层
                 layer.close(index);
+
                 var iframeIndex = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(iframeIndex);
 

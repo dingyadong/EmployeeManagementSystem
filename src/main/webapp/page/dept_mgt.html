@@ -64,7 +64,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '../departmentjson.do',
+            url: '../deptmentjson.do',
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -133,9 +133,17 @@
         });
 
         table.on('tool(currentTableFilter)', function (obj) {
+<<<<<<< HEAD
             var data = obj.data;//得到所在行所有键值
+=======
+            var data = obj.data;
+>>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
             if (obj.event === 'edit_dept') {
+<<<<<<< HEAD
 				//layer.alert(field)
+=======
+
+>>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
                 var index = layer.open({
                     title: '编辑部门',
                     type: 2,
@@ -143,7 +151,6 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-
                     content: '../page/table/edit_dept.html',
 					success:function(layero,index){
                     	

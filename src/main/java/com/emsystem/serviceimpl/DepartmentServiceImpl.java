@@ -26,7 +26,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public boolean save(Department d) {
 		// TODO Auto-generated method stub
-		return dao.save(d)>0;
+		return false;
 	}
 
 	@Override
