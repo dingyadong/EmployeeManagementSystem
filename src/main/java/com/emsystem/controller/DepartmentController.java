@@ -1,5 +1,7 @@
 package com.emsystem.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.emsystem.pojo.CardHolder;
 import com.emsystem.pojo.Department;
 import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.service.DepartmentService;
@@ -52,6 +55,19 @@ public class DepartmentController {
 		//System.out.println(d.getDepartment_id());
 		return json;
 	}
+	
+	@RequestMapping(value = "/upDateUserById",produces ={ "application/json;charset=UTF-8"})
+    @ResponseBody
+    public ObjectRlationJson upDateUserById(Department d) throws SQLException{
+		ObjectRlationJson json = new ObjectRlationJson();
+		System.out.println(d.getDepartment_id()+d.getDepatment_name());
+		if(service.update(d)){
+			json.setMsg("更新成功！");
+		}else {
+			json.setMsg("更新失败！");
+		}
+        return json;
+    }
 	
 
 }

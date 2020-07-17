@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.emsystem.pojo.Department;
 import com.emsystem.pojo.ObjectRlationJson;
+import com.emsystem.pojo.User;
 import com.emsystem.service.UserService;
 /**
 * @Description: 用户的servlet(增删改查) 此处用的springMVC框架直接用注解的方式
@@ -27,6 +29,23 @@ public class UserController {
 	public ObjectRlationJson showUserlistjson() {
 		ObjectRlationJson json = new ObjectRlationJson();
 		json.setData(service.queryAll());
+		return json;
+	}
+	/**
+	 * 部门添加
+	 * @param d前台传过来的departmen对象
+	 * @return
+	 */
+	@RequestMapping(value ="/adduser",produces ={"application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson adduserjson(User u){
+		ObjectRlationJson json = new ObjectRlationJson();
+		if(service.save(u)){
+			json.setMsg("添加成功！");
+		}else{
+			json.setMsg("添加失败！");
+		}
+		//System.out.println(d.getDepartment_id());
 		return json;
 	}
 }

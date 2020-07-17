@@ -133,11 +133,9 @@
         });
 
         table.on('tool(currentTableFilter)', function (obj) {
-            var data = obj.data//得到所在行所有键值
-            ,value=obj.value,//得到修改后的值
-            field=obj.field;//得到字段
+            var data = obj.data;//得到所在行所有键值
             if (obj.event === 'edit_dept') {
-				layer.alert(field)
+				//layer.alert(field)
                 var index = layer.open({
                     title: '编辑部门',
                     type: 2,
@@ -147,6 +145,13 @@
                     area: ['100%', '100%'],
 
                     content: '../page/table/edit_dept.html',
+					success:function(layero,index){
+                    	
+                   	var body=layer.getChildFrame('body',index);//少了这个是不能从父页面向子页面传值的
+                   	//获取子页面的元素，进行数据渲染
+                   	body.contents().find('#department_id').val(data.department_id);
+                   	body.contents().find('#depatment_name').val(data.depatment_name);
+                   	}
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

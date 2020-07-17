@@ -20,7 +20,8 @@ public interface UserDao {
 	@Select("select * from user where user_id=#{user_id}")
 	public User querySingle(int user_id);
 	//新增
-	@Insert("insert into user(user_name) values(#{user_name})")
+	@Insert("insert into user(user_id,user_name,user_sex,user_age,boardroom_id,department_id,telephone,email,system_role) "
+			+ "values(#{user_id},#{user_name},#{user_sex},#{user_age},#{boardroom_id},#{department_id},#{telephone},#{email},#{system_role})")
 	int save(User u);
 	//编辑
 	@Update("update user set user_name=#{user_name} where user_id=#{user_id}")

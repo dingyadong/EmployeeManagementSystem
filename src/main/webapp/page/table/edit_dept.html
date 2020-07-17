@@ -20,13 +20,13 @@
     <div class="layui-form-item">
         <label class="layui-form-label required">修改部门编号</label>
         <div class="layui-input-block">
-            <input type="number" name="deptid" lay-verify="required" lay-reqtext="部门编号不能为空" placeholder="请输入部门编号" value="" class="layui-input">
+            <input readonly type="number" name="department_id" id="department_id" lay-verify="required" lay-reqtext="部门编号不能为空" placeholder="请输入部门编号" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">修改部门名称</label>
         <div class="layui-input-block">
-            <input type="number" name="deptname" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
+            <input type="text" name="depatment_name" id="depatment_name" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -45,17 +45,32 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var index = layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            }, function () {
-
-                // 关闭弹出层
-                layer.close(index);
+        	var department_id = $('input[name="department_id"]').val();
+        	var depatment_name = $('input[name="depatment_name"]').val();
+            //var index = layer.alert(JSON.stringify(data.field), {
+            	$.ajax({
+                    url:"../../upDateUserById.do",
+                    type:"GET",
+                    async : false, //同步请求
+                    //注意序列化的值一定要放在最前面,并且不需要头部变量,不然获取的值得格式会有问题
+                    data:"department_id="+department_id+"&depatment_name="+depatment_name,
+                    dataType:"json",
+                    success:function (data) {
+                        layer.alert(data.msg);
+                    }
+             
+                    // 关闭弹出层
+             
+               
+                });
 
                 var iframeIndex = parent.layer.getFrameIndex(window.name);
                 parent.layer.close(iframeIndex);
-
-            });
+                setTimeout(function(){
+                	//w indow. parent. location. href = 'list. do';或者
+                	parent.location.reload();//刷新父页面
+                	},5*100);//延迟500毫秒
+           
 
             return false;
         });

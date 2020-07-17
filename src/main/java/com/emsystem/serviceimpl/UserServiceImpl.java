@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean save(User u) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.save(u)>0;
 	}
 
 	@Override

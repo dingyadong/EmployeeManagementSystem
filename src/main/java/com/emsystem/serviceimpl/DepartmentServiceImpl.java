@@ -32,7 +32,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public boolean update(Department d) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.update(d)>0;
 	}
 
 	@Override

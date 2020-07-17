@@ -23,7 +23,7 @@ public interface DepartmentDao {
 	@Insert("insert into department(department_id,depatment_name) values(#{department_id},#{depatment_name})")
 	int save(Department d);
 	//编辑
-	@Update("update department set depament_name=#{depament_name} where department_id=#{department_id}")
+	@Update("update department set depatment_name=#{depatment_name} where department_id=#{department_id}")
 	int update(Department d);
 	//根据id删除
 	@Delete("delete from department where department_id=#{department_id}")
