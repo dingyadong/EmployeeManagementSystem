@@ -1,30 +1,30 @@
 package com.emsystem.pojo;
 
 public class Boardroom {
-	private int boardroomId;
-	private String boardroomName;
-	private String boardroomUrl;
+	private int boardroom_id;
+	private String boardroom_name;
+	private String boardroom_url;
 	private int space;
-	private int airCondition;
-	public int getBoardroomId() {
-		return boardroomId;
+	private String air_condition;
+	private int is_order;
+	private String order_name;
+	public int getBoardroom_id() {
+		return boardroom_id;
 	}
-	public void setBoardroomId(int boardroomId) {
-		this.boardroomId = boardroomId;
+	public void setBoardroom_id(int boardroom_id) {
+		this.boardroom_id = boardroom_id;
 	}
-	public String getBoardroomName() {
-		return boardroomName;
+	public String getBoardroom_name() {
+		return boardroom_name;
 	}
-	public void setBoardroomName(String boardroomName) {
-		this.boardroomName = boardroomName;
+	public void setBoardroom_name(String boardroom_name) {
+		this.boardroom_name = boardroom_name;
 	}
-	
-
-	public String getBoardroomUrl() {
-		return boardroomUrl;
+	public String getBoardroom_url() {
+		return boardroom_url;
 	}
-	public void setBoardroomUrl(String boardroomUrl) {
-		this.boardroomUrl = boardroomUrl;
+	public void setBoardroom_url(String boardroom_url) {
+		this.boardroom_url = boardroom_url;
 	}
 	public int getSpace() {
 		return space;
@@ -32,16 +32,24 @@ public class Boardroom {
 	public void setSpace(int space) {
 		this.space = space;
 	}
-	public int getAirCondition() {
-		return airCondition;
+	public String getAir_condition() {
+		return air_condition;
 	}
-	public void setAirCondition(int airCondition) {
-		this.airCondition = airCondition;
+	public void setAir_condition(String air_condition) {
+		this.air_condition = air_condition;
 	}
-	@Override
-	public String toString() {
-		return "Boardroom [boardroomId=" + boardroomId + ", boardroomName=" + boardroomName + ", boardroomUrl="
-				+ boardroomUrl + ", space=" + space + ", airCondition=" + airCondition + "]";
+	public int getIs_order() {
+		return is_order;
 	}
-
+	public void setIs_order(int is_order) {
+		this.is_order = is_order;
+	}
+	public String getOrder_name() {
+		return order_name;
+	}
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
+	}
+	
+	
 }
