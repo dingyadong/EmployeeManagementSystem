@@ -34,20 +34,19 @@ public class UserController {
 		return json;
 	}
 	/**
-	 * 部门添加
-	 * @param d前台传过来的departmen对象
+	 * 添加
+	 * @param u前台传过来的user对象
 	 * @return
 	 */
-	@RequestMapping(value ="/adduser",produces ={"application/json;charset=UTF-8"})
+	@RequestMapping(value ="/AddUser",produces ={"application/json;charset=UTF-8"})
 	@ResponseBody
-	public ObjectRlationJson adduserjson(User u){
+	public ObjectRlationJson AddUser(User u){
 		ObjectRlationJson json = new ObjectRlationJson();
 		if(service.save(u)){
 			json.setMsg("添加成功！");
 		}else{
 			json.setMsg("添加失败！");
 		}
-		//System.out.println(d.getDepartment_id());
 		return json;
 	}
 	/**
@@ -56,9 +55,9 @@ public class UserController {
 	 * @return
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "/upDateUserById",produces ={ "application/json;charset=UTF-8"})
+	@RequestMapping(value = "/EditUserById",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
-    public ObjectRlationJson upDateUserById(User u) throws SQLException{
+    public ObjectRlationJson EditUserById(User u) throws SQLException{
 		ObjectRlationJson json = new ObjectRlationJson();
 
 		if(service.update(u)){

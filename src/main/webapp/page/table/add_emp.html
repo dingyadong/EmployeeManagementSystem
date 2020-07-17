@@ -20,31 +20,55 @@
    <div class="layui-form-item">
         <label class="layui-form-label required">员工编号</label>
         <div class="layui-input-block">
-            <input type="number" name="empid" lay-verify="required" lay-reqtext="员工编号不能为空" placeholder="请输入部门编号员工编号" value="" class="layui-input">
+            <input type="number" name="user_id" id="user_id" lay-verify="required" lay-reqtext="员工编号不能为空" placeholder="请输入部门编号员工编号" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">职位</label>
+        <label class="layui-form-label required">姓名</label>
         <div class="layui-input-block">
-            <input type="number" name="emppost" lay-verify="required" lay-reqtext="职位不能为空" placeholder="请输入职位" value="" class="layui-input">
+            <input type="text" name="user_name" id="user_name" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入姓名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">所属部门</label>
+        <label class="layui-form-label required">会议室id</label>
         <div class="layui-input-block">
-            <input type="number" name="deptname" lay-verify="required" lay-reqtext="部门名称不能为空" placeholder="请输入部门名称" value="" class="layui-input">
+            <input type="text" name="boardroom_id" id="boardroom_id" lay-verify="required" lay-reqtext="会议室id不能为空" placeholder="请输入会议室id" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">部门id</label>
+        <div class="layui-input-block">
+            <input type="text" name="department_id" id="department_id" lay-verify="required" lay-reqtext="性别不能为空" placeholder="请输入性别" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label required">性别</label>
         <div class="layui-input-block">
-            <input type="number" name="sex" lay-verify="required" lay-reqtext="性别不能为空" placeholder="请输入性别" value="" class="layui-input">
+            <input type="text" name="user_sex" id="user_sex" lay-verify="required" lay-reqtext="员工名不能为空" placeholder="请输入员工名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">员工名</label>
+        <label class="layui-form-label required">年龄</label>
         <div class="layui-input-block">
-            <input type="number" name="empname" lay-verify="required" lay-reqtext="员工名不能为空" placeholder="请输入员工名" value="" class="layui-input">
+            <input type="text" name="user_age" id="user_age" lay-verify="required" lay-reqtext="员工名不能为空" placeholder="请输入员工名" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="telephone" id="telephone" lay-verify="required" lay-reqtext="员工名不能为空" placeholder="请输入员工名" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">email</label>
+        <div class="layui-input-block">
+            <input type="text" name="email" id="email" lay-verify="required" lay-reqtext="email不能为空" placeholder="请输入email" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">系统角色</label>
+        <div class="layui-input-block">
+            <input type="text" name="system_role" id="system_role" lay-verify="required" lay-reqtext="员工名不能为空" placeholder="请输入员工名" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -64,8 +88,18 @@
 
         //监听提交
         form.on('submit(saveBtn)', function (data) {
-            var index = layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
+        	$.ajax({   
+                url:'../../adduser.do',       
+                method:'post',       
+                data:data.field,        
+                dataType:'JSON',         
+                success:function(res){
+		      
+				if(res.code='0'){
+					layer.alert(res.msg);
+					}else            
+						layer.alert(res.msg);   
+				}, error:function (data) {}
             }, function () {
 
                 // 关闭弹出层

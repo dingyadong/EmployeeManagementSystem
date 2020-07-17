@@ -22,12 +22,27 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService service;
 	
-
 	@RequestMapping(value = "/deptmentjson",produces ={ "application/json;charset=UTF-8"})
 	@ResponseBody
 	public ObjectRlationJson showjson() {
 		ObjectRlationJson json = new ObjectRlationJson();
 		json.setData(service.queryAll());
+		return json;
+	}
+	/**
+	 * 添加
+	 * @param d前台传过来的departmen对象
+	 * @return
+	 */
+	@RequestMapping(value ="/AddDepartment",produces ={"application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson AddDepartment(Department d){
+		ObjectRlationJson json = new ObjectRlationJson();
+		if(service.save(d)){
+			json.setMsg("添加成功！");
+		}else{
+			json.setMsg("添加失败！");
+		}
 		return json;
 	}
 
@@ -37,11 +52,11 @@ public class DepartmentController {
 	 * @return
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "/upDatedepartmentById",produces ={ "application/json;charset=UTF-8"})
+	@RequestMapping(value = "/EditDepartmentById",produces ={ "application/json;charset=UTF-8"})
     @ResponseBody
-    public ObjectRlationJson upDatedepartmentById(Department d) throws SQLException{
+    public ObjectRlationJson EditDepartmentById(Department d) throws SQLException{
 		ObjectRlationJson json = new ObjectRlationJson();
-		System.out.println(d.getDepartment_id()+d.getDepatment_name());
+		
 		if(service.update(d)){
 			json.setMsg("更新成功！");
 		}else {

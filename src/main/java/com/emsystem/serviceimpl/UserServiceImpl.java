@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	public List<User> queryAll() {
 		// TODO Auto-generated method stub
 		return dao.queryAll();
-	}
+	}  
 
 	@Override
 	public User querySingle(int id) {
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean update(User u) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.update(u)>0;
 	}
 
 	@Override
@@ -41,5 +41,4 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }
