@@ -14,17 +14,17 @@ import com.emsystem.pojo.UserInformation;
  *
  */
 public interface UserInformationDao {
-	//根据用户名模糊查询
-	@Select("select * from user where name LIKE CONCAT(CONCAT('%', #{user_name}),'%');")
+	//鏍规嵁鐢ㄦ埛鍚嶆ā绯婃煡璇�
+	@Select("select * from user where user_name LIKE CONCAT(CONCAT('%', #{user_name}),'%');")
 	@ResultType(UserInformation.class)
-	public List<UserInformation> queryName(String name);
+	public List<UserInformation> queryName(String user_name);
 	
-	//新增
-	@Insert("insert into users(user_id,user_name,password,user_sex,user_age,system_role,post,department_name,self,hobbies,telephone) values(#{user_id},#{user_name},#{password},#{user_sex},#{user_age},#{system_role},#{post},#{department_name},#{self},#{hobbies},#{telephone})")
+	//鏂板
+	@Insert("insert into user(user_id,user_name,password,user_sex,user_age,system_role,post,department_name,self,hobbies,telephone) values(#{user_id},#{user_name},#{password},#{user_sex},#{user_age},#{system_role},#{post},#{department_name},#{self},#{hobbies},#{telephone})")
 	public int save(UserInformation users);
 	
-	//查询所有
-	//查询全部
+	//鏌ヨ鎵�鏈�
+	//鏌ヨ鍏ㄩ儴
 	@Select("select * from user")
 	@ResultType(UserInformation.class)
 	List<UserInformation> queryAll();

@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.emsystem.pojo.ObjectRlationJson;
 import com.emsystem.pojo.UserInformation;
 import com.emsystem.service.UserInformationService;
 
@@ -19,29 +21,57 @@ import com.emsystem.service.UserInformationService;
 	@Autowired
 	private UserInformationService userI;
 
-	// 查询模糊
-	@RequestMapping("selectByName")
-	public String selectByName(String name, Model model) {
-		model.addAttribute("UserList", userI.queryByName(name));
-		return "page/table";
-		}
+//	// 查询模糊
+//	@RequestMapping("selectByName")
+//	public String selectByName1(String name, Model model) {
+//		model.addAttribute("UserList", userI.queryByName(name));
+//		return "page/table";
+//		}
 	
-	// 查看商品列表
-	@RequestMapping("getallusers")
-	public String goodslist(Model model) {
-		model.addAttribute("goodsList", userI.queryAll());
-		return "admin/showGoods";
+	// 查看员工列表
+	@RequestMapping(value = "/getallusers",produces ={ "application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson showjson() {
+		ObjectRlationJson json = new ObjectRlationJson();
+		json.setData(userI.queryAll());
+		return json;
 	}
+	
+	// 查看员工列表（名字）
+	@RequestMapping(value = "/getusersByName",produces ={ "application/json;charset=UTF-8"})
+	@ResponseBody
+	public ObjectRlationJson showjson1(String user_name) {
+		ObjectRlationJson json = new ObjectRlationJson();
+		json.setData(userI.queryByName(user_name));
+		return json;
+	}
+	
+	
+//	@RequestMapping(value = "/deptmentjson",produces ={ "application/json;charset=UTF-8"})
+//	@ResponseBody
+//	public ObjectRlationJson showjson() {
+//		ObjectRlationJson json = new ObjectRlationJson();
+//		json.setData(service.queryAll());
+//		return json;
+//	}
+	
 	
 	// 员工新增
-	@RequestMapping("adduser")
-	public String save(MultipartFile file, UserInformation user, HttpServletRequest request)
+	@RequestMapping(value = "/adduser")
+    @ResponseBody
+    public String save1(MultipartFile file, UserInformation user, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 		if (userI.save(user)) {
+			System.out.print("成功");
 			return "index";
 		} else {
-			request.setAttribute("msg", "添加失败，重新再来");
+			System.out.print("失败");
 			return "index";
 		}
 	}
+	
+	
 }
+
+
+
