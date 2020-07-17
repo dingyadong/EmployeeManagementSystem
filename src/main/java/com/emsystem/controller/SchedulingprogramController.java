@@ -20,7 +20,7 @@ public class SchedulingprogramController {
 	/**
 	 * 查询
 	 */
-	
+	  
 	
 	@Autowired
 	private SchedulingprogramService schedulingplist;
