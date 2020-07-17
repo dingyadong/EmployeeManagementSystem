@@ -133,17 +133,11 @@
         });
 
         table.on('tool(currentTableFilter)', function (obj) {
-<<<<<<< HEAD
-            var data = obj.data;//得到所在行所有键值
-=======
-            var data = obj.data;
->>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
-            if (obj.event === 'edit_dept') {
-<<<<<<< HEAD
-				//layer.alert(field)
-=======
 
->>>>>>> branch 'ceshi' of https://github.com/dingyadong/EmployeeManagementSystem.git
+            var data = obj.data;//得到所在行所有键值
+
+            if (obj.event === 'edit_dept') {
+
                 var index = layer.open({
                     title: '编辑部门',
                     type: 2,

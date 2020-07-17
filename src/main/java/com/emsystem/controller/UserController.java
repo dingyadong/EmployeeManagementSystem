@@ -1,5 +1,7 @@
 package com.emsystem.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,4 +50,22 @@ public class UserController {
 		//System.out.println(d.getDepartment_id());
 		return json;
 	}
+	/**
+	 * 编辑功能
+	 * @param d
+	 * @return
+	 * @throws SQLException
+	 */
+	@RequestMapping(value = "/upDateUserById",produces ={ "application/json;charset=UTF-8"})
+    @ResponseBody
+    public ObjectRlationJson upDateUserById(User u) throws SQLException{
+		ObjectRlationJson json = new ObjectRlationJson();
+
+		if(service.update(u)){
+			json.setMsg("更新成功！");
+		}else {
+			json.setMsg("更新失败！");
+		}
+        return json;
+    }
 }
